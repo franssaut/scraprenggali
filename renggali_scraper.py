@@ -413,22 +413,88 @@ class RenggaliScraper:
         print(f"[OK] File Excel tersimpan: {output_path}")
 
     def export_to_json(self, output_path: str = "hasil_scraping_renggali.json"):
-        """Mengekspor data ke file JSON terstruktur."""
+        """Mengekspor data ke file JSON terstruktur beserta fitur Update Terbaru."""
         os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+
+        # Pastikan local_image ditambahkan untuk website
+        for p in (self.projects_detailed or self.catalog_data):
+            p["local_image"] = f"downloads/images/{p['project_name']}.jpg"
+
+        # Buat daftar Update Terbaru secara otomatis
+        updates = []
+
+        # 1. Update Booking Unit Terbaru
+        if self.booking_df is not None and len(self.booking_df) > 0:
+            valid_bookings = [
+                r for r in self.booking_df.to_dict(orient="records")
+                if r.get("PERUMAHAN") and r.get("BLOK")
+            ]
+            for r in valid_bookings[:3]:
+                status_ket = r.get("KETERANGAN_PROSES") or "Booking Unit"
+                updates.append({
+                    "id": f"book_{r.get('NO', len(updates))}",
+                    "type": "BOOKING",
+                    "badge": "Booking Unit Live",
+                    "badge_color": "emerald",
+                    "title": f"Unit {r.get('PERUMAHAN')} Blok {r.get('BLOK')}/{r.get('NOMOR')} Terbooking",
+                    "description": f"Skema: {status_ket} • Sales: {r.get('SALES', '-')} • Status Sisforum: {r.get('STATUS_SISFORUM', '-')}",
+                    "date": r.get("TANGGAL_BOOKING") or "Baru Saja",
+                    "project_name": r.get("PERUMAHAN"),
+                    "link_type": "scroll_booking",
+                    "target": "#booking-section"
+                })
+
+        # 2. Update Promo & Diskon Spesial
+        for p in (self.projects_detailed or self.catalog_data):
+            summary = p.get("promo_summary", "")
+            if any(kw in summary.lower() for kw in ["diskon", "50 juta", "gratis"]):
+                updates.append({
+                    "id": f"promo_{p['project_name'][:10]}",
+                    "type": "PROMO",
+                    "badge": "Promo Diskon Hot",
+                    "badge_color": "amber",
+                    "title": f"Promo Terbaru: {p['project_name']}",
+                    "description": summary,
+                    "date": "Oktober 2026",
+                    "project_name": p["project_name"],
+                    "link_type": "open_modal",
+                    "target": p["project_name"]
+                })
+                if len([u for u in updates if u["type"] == "PROMO"]) >= 3:
+                    break
+
+        # 3. Update Dokumen Price List & Site Plan
+        for p in (self.projects_detailed or self.catalog_data):
+            for doc in p.get("documents", []):
+                t_low = doc.get("title", "").lower()
+                if any(kw in t_low for kw in ["okt", "2026", "sept", "mar", "mei"]):
+                    updates.append({
+                        "id": f"doc_{doc.get('doc_id', len(updates))}",
+                        "type": "DOKUMEN",
+                        "badge": f"{doc.get('doc_type', 'Dokumen')} Baru",
+                        "badge_color": "blue",
+                        "title": f"Update {doc.get('doc_type')}: {p['project_name']}",
+                        "description": f"Berkas resmi '{doc.get('title')}' telah diperbarui dan siap diunduh.",
+                        "date": "Edisi Terbaru",
+                        "project_name": p["project_name"],
+                        "link_type": "external_download",
+                        "target": doc.get("download_url") or doc.get("view_url")
+                    })
+                    break
+            if len([u for u in updates if u["type"] == "DOKUMEN"]) >= 3:
+                break
 
         payload = {
             "source_url": self.BASE_URL,
             "scraped_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "scraped_at_formatted": time.strftime("%d %B %Y, %H:%M WIB"),
             "total_projects": len(self.projects_detailed or self.catalog_data),
+            "latest_updates": updates,
             "projects": self.projects_detailed or self.catalog_data,
             "booking_spreadsheet_url": self.spreadsheet_url,
             "booking_records_count": len(self.booking_df) if self.booking_df is not None else 0,
             "booking_records": self.booking_df.to_dict(orient="records") if self.booking_df is not None else [],
         }
-
-        # Pastikan local_image ditambahkan untuk website
-        for p in (self.projects_detailed or self.catalog_data):
-            p["local_image"] = f"downloads/images/{p['project_name']}.jpg"
 
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)

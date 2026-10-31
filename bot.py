@@ -58,6 +58,7 @@ def load_data():
 def main_menu_keyboard():
     """Menu Utama Inline Keyboard."""
     markup = types.InlineKeyboardMarkup(row_width=2)
+    btn_updates = types.InlineKeyboardButton("📢 Update & Promo Terbaru", callback_data="menu_updates")
     btn_katalog = types.InlineKeyboardButton("🏢 Katalog 17 Proyek", callback_data="menu_katalog")
     btn_wilayah = types.InlineKeyboardButton("📍 Filter Wilayah", callback_data="menu_wilayah")
     btn_booking = types.InlineKeyboardButton("📊 Info Booking Unit", callback_data="menu_booking")
@@ -65,6 +66,7 @@ def main_menu_keyboard():
     btn_web = types.InlineKeyboardButton("🌐 Buka Website", url=WEBSITE_URL)
     btn_sheet = types.InlineKeyboardButton("📑 Google Sheets", url=SPREADSHEET_URL)
     
+    markup.add(btn_updates)
     markup.add(btn_katalog, btn_wilayah)
     markup.add(btn_booking, btn_stats)
     markup.add(btn_web, btn_sheet)
@@ -108,6 +110,7 @@ def cmd_help(message):
     text = (
         "📖 <b>Panduan Penggunaan Bot Renggali Group:</b>\n\n"
         "• /start atau /menu - Membuka menu navigasi utama\n"
+        "• /terbaru - Cek info promo, berkas & update terbaru\n"
         "• /katalog - Menampilkan daftar 17 proyek perumahan\n"
         "• /wilayah - Filter proyek berdasarkan kawasan di Batam\n"
         "• /booking - Cek status transaksi booking unit hari ini\n"
@@ -116,6 +119,12 @@ def cmd_help(message):
         "• /refresh - Memperbarui data langsung dari Google Sites\n"
     )
     bot.send_message(message.chat.id, text, reply_markup=back_to_main_keyboard())
+
+
+@bot.message_handler(commands=["terbaru", "updates", "promo"])
+def cmd_terbaru(message):
+    """Menampilkan update dan promo terbaru."""
+    send_updates_summary(message.chat.id)
 
 
 @bot.message_handler(commands=["katalog"])
@@ -231,6 +240,10 @@ def handle_callbacks(call):
     elif data == "menu_booking":
         bot.answer_callback_query(call.id)
         send_booking_summary(chat_id, message_id)
+
+    elif data == "menu_updates":
+        bot.answer_callback_query(call.id)
+        send_updates_summary(chat_id, message_id)
 
     elif data == "menu_stats":
         bot.answer_callback_query(call.id)
@@ -434,6 +447,36 @@ def send_stats_summary(chat_id, message_id=None):
     )
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(types.InlineKeyboardButton("🏢 Lihat Katalog Proyek", callback_data="menu_katalog"))
+    markup.add(types.InlineKeyboardButton("🔙 Menu Utama", callback_data="menu_main"))
+
+    if message_id:
+        bot.edit_message_text(text, chat_id, message_id, reply_markup=markup)
+    else:
+        bot.send_message(chat_id, text, reply_markup=markup)
+
+
+def send_updates_summary(chat_id, message_id=None):
+    """Menampilkan rangkuman seluruh update terbaru dari data scraping."""
+    data = load_data()
+    updates = data.get("latest_updates", [])
+    scraped_at = data.get("scraped_at_formatted") or "Baru Saja"
+
+    text = f"📢 <b>Update & Aktivitas Terbaru Renggali Group:</b>\n"
+    text += f"🕒 <i>Terakhir disinkronkan: {scraped_at}</i>\n\n"
+
+    markup = types.InlineKeyboardMarkup(row_width=1)
+
+    if updates:
+        for u in updates[:6]:
+            icon = "🔥" if u["type"] == "PROMO" else ("📊" if u["type"] == "BOOKING" else "📑")
+            text += f"{icon} <b>[{u['badge']}] {u['title']}</b>\n"
+            text += f"{u['description']}\n\n"
+
+        markup.add(types.InlineKeyboardButton("🌐 Lihat Detail Semua Update di Web", url=f"{WEBSITE_URL}#updates-section"))
+        markup.add(types.InlineKeyboardButton("🏢 Buka Katalog Properti", callback_data="menu_katalog"))
+    else:
+        text += "<i>Belum ada catatan update terbaru saat ini.</i>\n"
+
     markup.add(types.InlineKeyboardButton("🔙 Menu Utama", callback_data="menu_main"))
 
     if message_id:
