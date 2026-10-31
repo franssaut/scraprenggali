@@ -696,6 +696,11 @@
       renderWilayahCards();
       lucide.createIcons();
 
+      // Cek jika data booking kosong, ambil langsung secara real-time dari Google Sheets
+      if (!RENGGALI_DATA.booking_records || RENGGALI_DATA.booking_records.length === 0) {
+        fetchLiveBookingFromGoogleSheets();
+      }
+
       // Event listeners
       document.getElementById('search-input').addEventListener('input', (e) => {
         searchQuery = e.target.value.toLowerCase().trim();
@@ -850,27 +855,95 @@
       lucide.createIcons();
     }
 
-    function refreshDataVisual() {
+    async function fetchLiveBookingFromGoogleSheets() {
+      const url = 'https://docs.google.com/spreadsheets/d/194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8/export?format=csv&gid=1761929285';
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return;
+        const text = await res.text();
+        const rows = parseCSV(text);
+        if (rows && rows.length > 0) {
+          RENGGALI_DATA.booking_records = rows;
+          initBookingMetrics();
+          renderBookingTable();
+          const statBook = document.getElementById('stat-bookings');
+          if (statBook) statBook.textContent = rows.length + '+';
+        }
+      } catch (e) {
+        console.warn('Live spreadsheet fetch:', e);
+      }
+    }
+
+    function parseCSV(text) {
+      const lines = text.split(/\r?\n/).filter(line => line.trim().length > 0);
+      if (lines.length < 2) return [];
+
+      const records = [];
+      for (let i = 1; i < lines.length; i++) {
+        const values = parseCSVLine(lines[i]);
+        if (!values || values.length === 0 || !values[0]) continue;
+        records.push({
+          NO: values[0] || i,
+          TANGGAL_BOOKING: values[1] || '',
+          JANGKA_WAKTU: values[3] || values[2] || '',
+          SALES: values[4] || '',
+          NAMA_KONSUMEN: values[6] || values[5] || '',
+          PERUMAHAN: values[7] || '',
+          BLOK: values[8] || '',
+          NOMOR: values[9] || '',
+          KETERANGAN_PROSES: values[10] || '',
+          STATUS_BERKAS_AWAL: values[11] || '',
+          STATUS_SISFORUM: values[12] || ''
+        });
+      }
+      return records;
+    }
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') {
+          if (inQuotes && line[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (c === ',' && !inQuotes) {
+          result.push(current.trim());
+          current = '';
+        } else {
+          current += c;
+        }
+      }
+      result.push(current.trim());
+      return result;
+    }
+
+    async function refreshDataVisual() {
       const icon = document.getElementById('refresh-icon');
-      icon.classList.add('animate-spin');
+      if (icon) icon.classList.add('animate-spin');
       
-      setTimeout(() => {
-        icon.classList.remove('animate-spin');
-        const now = new Date();
-        const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
-        document.getElementById('sync-timestamp').textContent = `Sinkron: Hari Ini, ${timeStr}`;
-        initBookingMetrics();
-        renderBookingTable();
-        renderUpdatesCards();
-        
-        // Notification toast
-        const toast = document.createElement('div');
-        toast.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 animate-in fade-in slide-in-from-bottom duration-300';
-        toast.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Data berhasil disinkronkan & diperbarui!`;
-        document.body.appendChild(toast);
-        lucide.createIcons();
-        setTimeout(() => toast.remove(), 2500);
-      }, 700);
+      await fetchLiveBookingFromGoogleSheets();
+
+      if (icon) icon.classList.remove('animate-spin');
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
+      document.getElementById('sync-timestamp').textContent = `Sinkron: Hari Ini, ${timeStr}`;
+      initBookingMetrics();
+      renderBookingTable();
+      renderUpdatesCards();
+      
+      // Notification toast
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 animate-in fade-in slide-in-from-bottom duration-300';
+      toast.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Data berhasil disinkronkan & diperbarui!`;
+      document.body.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => toast.remove(), 2500);
     }
 
     // Filter Pills

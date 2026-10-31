@@ -416,6 +416,13 @@ class RenggaliScraper:
         """Mengekspor data ke file JSON terstruktur beserta fitur Update Terbaru."""
         os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
 
+        # Pastikan data booking selalu terisi
+        if self.booking_df is None or len(self.booking_df) == 0:
+            try:
+                self.fetch_booking_data()
+            except Exception as e:
+                print(f"  [!] Gagal memuat data booking: {e}")
+
         # Pastikan local_image ditambahkan untuk website
         for p in (self.projects_detailed or self.catalog_data):
             p["local_image"] = f"downloads/images/{p['project_name']}.jpg"
@@ -512,6 +519,12 @@ class RenggaliScraper:
     def export_to_csv(self, output_dir: str = "output_csv"):
         """Mengekspor masing-masing tabel ke file CSV."""
         os.makedirs(output_dir, exist_ok=True)
+
+        if self.booking_df is None or len(self.booking_df) == 0:
+            try:
+                self.fetch_booking_data()
+            except Exception as e:
+                print(f"  [!] Gagal memuat data booking: {e}")
 
         projects_data = self.projects_detailed or self.catalog_data
         proyek_rows = []
