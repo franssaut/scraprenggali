@@ -1,8 +1,8 @@
 // Data Otomatis Hasil Scraping Renggali Group
 const RENGGALI_DATA = {
   "source_url": "https://sites.google.com/view/proyekrenggali/home",
-  "scraped_at": "2026-10-31 20:44:36",
-  "scraped_at_formatted": "31 October 2026, 20:44 WIB",
+  "scraped_at": "2026-10-31 23:50:09",
+  "scraped_at_formatted": "31 October 2026, 23:50 WIB",
   "total_projects": 17,
   "latest_updates": [
     {
@@ -119,7 +119,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Residence",
       "location": "Tembesi",
       "project_url": "https://sites.google.com/view/renggaliresidence/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sI1cM1XrhJEmnl6G0sVLHURJP7r1WZWpYY9oQXy7mUp3xg9DX2VZqta8jj2LUXKl1NmM1UtDiqNNxysMDcNWdwuqP3DE0U76o7j5at_ItB7vV2iLeaqe4EBBuWV27ffXXJzPdZmIGHAHrszVeTcORQxK1ef-GZqnVXIxCXFsXZCVVmVsJ5vvxW8tFs_AmCyrdAyuKbohGz3HITxM2EgWqdstPe0vKGBAaVFr_EhcM=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vds7aS0wozayEmmPlFeqXSAtH1rNvx_b8iJB6rD1GpkoC8XzYBv8lC8ChUsWH0Z58zqafdiKX4RwdlmGRkr42R4Ibc4Xq13ArORfXiv9o0tSgMCHE07UvC9FRL4qWVMydsaYTNs-i2_jt-VGUtQ6qhxBV0LhIR49argV3MfmlIyxm_nh7zX-No5UvUtYgAV7e_AViIrhnrzAz-cE64572eHEzQfq7d-y-avmcCn2c=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : BPHTB, SHGB, AJB Dan 5% Saldo Bank | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin! | 🟥= Free Dapur",
       "promo_details": [
         "PROMO TERBARU",
@@ -153,7 +153,7 @@ const RENGGALI_DATA = {
         {
           "title": "RENGGALI RESIDENCE",
           "video_id": "xbx9cvGuuL4",
-          "embed_url": "https://www.youtube.com/embed/xbx9cvGuuL4?embed_config=%7B%22enc%22:%22AXH1ezkIhLR8AxA0W-xsaKsYEZoSJTk-AGaxwA3FRD1tKGIeSo6hoi2gWyl0rqXMKmVdh9LAyZ5qvLk-g7Bhxe57oH2zPQmbyQFJjcamv7LLCe1l2lIh6RFs4xtcKehY8pn6m3TtOOyPBdiK1kGdYzSGO3Srvyej-gHJpxmi9qhqiDxz%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/xbx9cvGuuL4?embed_config=%7B%22enc%22:%22AXH1eznTrCLT19BqBDV8hnsH7g454iQmmE9GmJQ_F9nWhoG4Yp96sEh778NRyngpfQp-4l4MgTxF9UgSkvaV1dq4HfAWf9vHPkq4JoYw5ggowUVz92_CflXvLY7aVRs2ZE9te5M0Wq3wVWp-ogn0X619jPA3kyJmKi9DGMTQi7hzKDHiHyLa17sO6iCOOTvazSz-JKQumBiceLN3gfhYUPcn5i7RgTzCP9tgIj-hGRwmCPXQ68edPhde6HHZTCqPgzH_8M9KJLozhOeY2rb_ud9M_orSg06G-vZjJ_nPLLfB4mzQyMamccqzxYS8szgTrC0WdbJpooF3Bqs0pLTjN71OYtt2s5wFbVDS46lfVwumFA%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=xbx9cvGuuL4"
         }
       ],
@@ -188,7 +188,7 @@ const RENGGALI_DATA = {
       "project_name": "Taman Anugerah Residence",
       "location": "Tembesi",
       "project_url": "https://sites.google.com/view/tamananugerah/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72u4XMG7KpMZQNg-U2Ee0KH_NONC8bz9Abr6WlE_IEeURFkHuifYWGweSBKStZQYfXha0cXqpZRYfG0pjBMO5jqdMSGawnUG1dYIGvKIQtE7e9ixX9g52l9WVyeSMUcqo8TkRZVF2gRtzNbhg8UDlc5WnYJeVAGXKWUTqzf_BNrYkRXjeBBVks9MarzFqBKIZhHw-nGQbjjr_aHGS0Yws41DrvCuYvssn2WS5fvk=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72ta2xrWhXXUL2JvGp9TOjP-jW5rEf_yg3cWaYeRUK77PJY8J9MqTEFT-A1uRqkgIijYnBAYs21wu_SEyfE2cKePCHV_p3-77IxlB8KwNO3kkD3fDmAIFVgTb2IkqSUgEC_hNQIFBxRiRiNEoS-xR7PaVL9F0zq-uY6v5hgL-pOpWH22SR8qsTo4sPm5HRWDJrQyJiCoSjVFuW04ItvBapfWHwmRvLzYOXOa6Q1J=w1280",
       "promo_summary": "PROMO TERBARU | Gratis | : BPHTB, SHGB, AJB Dan 4% Saldo Bank | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -220,7 +220,7 @@ const RENGGALI_DATA = {
         {
           "title": "TAMAN ANUGERAH",
           "video_id": "KwGkTkvNbdA",
-          "embed_url": "https://www.youtube.com/embed/KwGkTkvNbdA?embed_config=%7B%22enc%22:%22AXH1ezn88nGcTK4rN_XvUo7f-1jTbl9gKJIhw6wN8GqsSg5_T9zYgDO-LGtGI_Lx96z1RFrLon1OnQORswbD4WhSakOYBdP65LTtnlLB4GysTBa97JLqMP5VNWS6OMEHRj1Fiz3_oMvpvG2PxYGq7GoSdHR0Wm4_atntvaoVbLjYb1X8%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/KwGkTkvNbdA?embed_config=%7B%22enc%22:%22AXH1ezmKP3DWZp0kDowp8hHfyiODZl6EjPQrSuvPoB2StfopXhyLSS2iFH4Xm6-VlIzCr3JbcCGY4AfaI0adER99A5kaqjs07FxaYjC1-cfVPpo5yOPvK8_tL5Tb5SnoZyDM2rpP3b3JVUpmXdbXqA-XP_S8_zpai3PJE83-y6GMdD1RCAP13r_Cr67J2c6kH9_v7A4yY9NxqMENyvr6wiumHPM7Cm0bXvzUhf6aLchcgbsWTeH-vCJI70PUITo9Fi8HyIxKh3iFKl7aBo_3qPCfM0Ky96lxO7PVPuNAb1FCow2gey_HGsB4l5q_bLiW8fg1R8-NmvHTs48gcMipv60rSA-Gvt-9ljF4M7Z4LaMGTw%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=KwGkTkvNbdA"
         }
       ],
@@ -255,7 +255,7 @@ const RENGGALI_DATA = {
       "project_name": "Anugerah Renggali",
       "location": "Tembesi",
       "project_url": "https://sites.google.com/view/anugerahrenggali/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sjsdajP7AN-HhbQuisYFfEQ1Rh_DSVHJaxLrdfPNLn_32wwgrDUs3WZRCz8koWccZzyZaiUkpAgwxcs75f6VEIu9Nr92LOfLjFe2_T6zEgRUgJVopXo7yMN0oFeXZtSo0GDHJ7vy3okTLIY-yhBGfdt_0PygDySYh0B7Mkta4nJHuTNvzwmwwhqtfqQW3vydu3mlp6y5bB-wCCgxvBadz2fvNHKpFStJkVCaJxaf0=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72tm2-0-cKi5nrFwgIf-IhqweBgsBFYTFY9kak-veoN8XK_WxLsnpZxDEt3bVRYvfoGSzoA0x-HNp116Mfov1EomlJnQpFGySRPw_zVsK7QDVorFHAGZIxyQTlu4P5u31X0DSZA7jaNwrvxPei66urDtHbU7Wb4Cet_UjN09OPhfh6Nt6Vocg4llUwgG_b7KkVAceaHda9-yWsVSJKYNp_Um9_9YASxZi2q-CLVIjKQ=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, AJB Dan | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -288,7 +288,7 @@ const RENGGALI_DATA = {
         {
           "title": "ANUGERAH RENGGALI",
           "video_id": "8EF0oxWUfw8",
-          "embed_url": "https://www.youtube.com/embed/8EF0oxWUfw8?embed_config=%7B%22enc%22:%22AXH1ezkchovxPbyS2YMc4RHGoHfPD0wSAUvtTIv2-JLmCKQ2FTlJMuiUZe0VEfg_Rv88_pDymUtoKmJq9WXhVHoH1TIZlWQQ4pMFHDEuy6_XhCMtTxo30tx2WFXCWYDhrV0F4yKbREISTnKNAXLxWc0o8VIKQi6s7DcmEUSZIygyNseW%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/8EF0oxWUfw8?embed_config=%7B%22enc%22:%22AXH1ezkq7AOS_ZdyRuDS7Qi-t5LGhVEAI6pKL-_LxPbC42xBA0uWGA_bYd2TyYDXVZx61FJbxEhItk_V45zcqmQuyQcN7pINa5K3MwHnKv958lIIc5wGluaFrF1e4rNEbJt7cqKrFGq7L5_ystzf0jx2CUqWWhC5hcGV3W8A4jQ3y_XsA0O8Q-wopGoBrrLqFKsBMh1YUIPuXmNGmkSK0fgWOQ66gotly8UD8YaXjn6VTzFd0fruqGW1cNKLTlewAOIQMbBbaolBfQ16_BWKElZ36DDPRtc95_eKpeJmG1Aqjy1f3MbKYtbu5QKguFjPZT-CdPJ7ztBGPL3QzDvVOYFdrs7ZZ7MRjKjF7vRYajFesQ%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=8EF0oxWUfw8"
         }
       ],
@@ -321,7 +321,7 @@ const RENGGALI_DATA = {
       "project_name": "Cluster Ivory",
       "location": "Tembesi",
       "project_url": "https://sites.google.com/view/kotamandirirenggali/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vRB_EX1PaL2uE2jo8LofGA68DIFFYD6YKwlHE_uhTU78ti5dnxBTiGddgXQCuwYWuo84iLJ5BdbKl8_ymN0TNFOD9QnzrkIISYQgk3TaR8w2A3y39tTMobzs3YD5KNSqVpXdmauxqGxCWVB7KE-JpiEvMgUS_wAtwYfKL3j6E23Bk69ev8jDisdp5Zkr37caLpAG8y37yNr-rvMTop7GlFz0DjuLEo0m_BtvIcqq0=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vRz2uJO1efmNkgI0nO67Jf_O8lSaGOwpkmsXHFdqQ9lTGe732brQgJPHm9aSklQIJPcyxWS3NOX-N3RDe_CgLSIvAFQXqNqt2JUTTyIEl09SGi7Uhi_UktIYaCkxKhGIdOZy4sr6mvKJ7kb6wiAW64LZAQ7JonzAxrnkrJsKpr-BqYTXYD_H7P32IDz0fa7GdLUMWlUEDnElP7zPlgIF3QIfLTrkJl_Vus82WI7sA=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, | AJB, | FREE DAPUR & RUANG MAKAN | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -356,7 +356,7 @@ const RENGGALI_DATA = {
         {
           "title": "PERUMAHAN KOTA MANDIRI RENGGALI",
           "video_id": "mPB-jegmXGM",
-          "embed_url": "https://www.youtube.com/embed/mPB-jegmXGM?embed_config=%7B%22enc%22:%22AXH1ezkDDmuUkodnzCAljQgq-ymTqhBWQlAQlxuOc6XwQuNTV50u7qi6BvVKIY5TZPVJkeBM8ENZLvdpIPfXvWGQNKMJE_PTErAp4MNmEWBTUG6IaiZFhwZpwe1mcc2sfq8NrZ9StzDGkeQXMFGXKRWGRrDz09ENoUYLVmBpo8wn3NE4%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/mPB-jegmXGM?embed_config=%7B%22enc%22:%22AXH1ezlrTHW16VNk6cEYm5gLLsH6yvmzZsWCBf2_87dvv67HSZfTrXsHdjf8cjHqts-d6Pi51qOceUNu8g-O5CNg9pDViIvlae2t9lsizR5RdoIBAAO0iFQskvfSucYJDRFTrrLVWLvwySO-9MsKB6qzdQ4NJr8vATVarnP4_6aWUFpXEiyXeU8J-GevwHkSEqED1WgVgUi5PHoJwipeUoFTLtxHrOe7I4oqyLjC2IJUNo7VRYbt6sBYGypfcIG4qH83PiGfR0fsVZA-sCJ2WfSHvMXMnwi0CH_usL_BUN4FusZkxjt702pRp81QOesGmpXpQ6bKTwrx-HEBJT5rBL02sk9KP3u6rGEQTB6K202gNw%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=mPB-jegmXGM"
         }
       ],
@@ -391,7 +391,7 @@ const RENGGALI_DATA = {
       "project_name": "Cluster Orange",
       "location": "Tembesi",
       "project_url": "https://sites.google.com/view/clusterorange/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72u0lrvEHlEWW_uc1GpGnHV8WfAsjkB_LkO522NQz2zMM3SmM3U4m_j9NwqMwGD_2Fu_rgD0SP1ODY6lfYyNS6x25N8O6hY41o68S4zdDaL1bVOp-Z4EEd8VBm9IxYJCvvqueUS4KW_46up8rduGZuGPgDuCjhNGkAjrYB3SvgmMb3w91EyB4VWi_lnjQcbjUfFaCqKHhPrI8MV4oRwjM6WRxy8f2U5FyF-l_lBt19c=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72v0fPhzWOtfJFZTHPgS-gPmV8SYKprNL8vlbxT959sg9IvetXkeOQe5LPO0XpzAh5Rl7T6EF2L7aog63KieVMCB2G8pOBN9HnmY0A83E55oXAzmernAR1iv0bBetGk2udz2T7tqkNbX1lF49cnxS0TxDwUnUoC0rN3x-p1fexaD-FXAeWJcDOxpK1XwvKboSAv_f6tbFyTpPt541hfQk4XBGUJz_O6z-SvalHcesRo=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Promo Launching | Gratis | SHGB, AJ | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -462,7 +462,7 @@ const RENGGALI_DATA = {
       "project_name": "Ruko Taman Anugerah",
       "location": "Tembesi",
       "project_url": "https://sites.google.com/view/rukotamananugerah/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sC69lsNEJFbbCSXj-SJYcpsgumlUQlKcjLg1-Hv3xu76Way-cCrBgKQ6PBvAIxYUaovQYJ6beTwcsqyMLgxFk0Fgp4eCcp8Izb3S5D48yiSNg9BjGSFcTxY1R0p1BRmbdB8zjxzsACuuAv7AxRvOQ-tccSF91cPLgiCV-3dpnflcLXevxyyfZyLvmKUlUxE9KLl7LNgQ2xsllVf6VIKQ0qoP1DrRqvq2Gi-lOj8qw=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sZODFce_rM90-8qN0UJarSpjSn5yUJPMjeCYxJP5M9dPp-a_vV3k1mSf6QOFme3WxIiq6wQhawfZQtaB6YYkIlntUHNZ1_sQEt64ITew58yfUAzfKnPs1GRXh2ZRF3JV87lJ05NGNJKPRD6pFjyI5IVFc01uR-GehKr1ALRMem6meEypNhsxageDlWNDzzNYoH4EsKKIRYv1kmxLWfTzHOS_DVUaii5J3bub9JlTY=w1280",
       "promo_summary": "Promo Sesuai Price List | PROMO TERBARU",
       "promo_details": [
         "Promo Sesuai Price List",
@@ -518,7 +518,7 @@ const RENGGALI_DATA = {
       "project_name": "Citra Renggali Marina",
       "location": "Simp. Basecamp",
       "project_url": "https://sites.google.com/view/citrarenggalimarina/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72s0GT5lXgVB8iKj-Lj81_E5jSHsf8u_0xPyxPnSx9uQX40TBvf9Hrp8bB3EYFOSlbWzoDXgZbKT_1jskLJsaByWg16dHQBeBzok7plw4XmCHcwg7F8mFHuJEXV-rIqw-YflCQ9o1rl4SNoVNia02Fiputg0DxfbfHe7_4Il1ioxDtNWD7Z87_W58vZ058XNWbl4B4Pn3SBuIo2iOD4r5kIXTAhB-mJw3MicJabsIlQ=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vER5YC8b9b_syQvgSGNeiE7IzxvypUoGPd4Y49Qu9_9DKV8w6deK_xJ-oLD-3Zr-ik-Z6tHuGKYyzO3J5PUx6k4cpdPH8jinpINSA3uChYRkcw-gsXd3UuDRaUGE8PXWmjylm3OcqycDMM2HL0yxOMEIbJOpsa0l5iGN2A0FRDYzerpk6RbM9S9uo04cm6B1FuMCNbXRi21dirtofqL_SlF_20B_6BEbXYL_o32Ng=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, AJB, BPHTB,  UWTO | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -569,7 +569,7 @@ const RENGGALI_DATA = {
         {
           "title": "Perumahan Renggali Grup Batam",
           "video_id": "6ljiHk5-39Y",
-          "embed_url": "https://www.youtube.com/embed/6ljiHk5-39Y?embed_config=%7B%22enc%22:%22AXH1ezlNogiliNycZNCiqqnVuQ1PjKKrdMAAQlwuOQba8N2sNOt3AD5NaGEYMEGv4ctMfx8Qu2jWkJRUcL2aiswEzUeyHFYfzvJgB92yyWKrU7ER9c6t4H3s35oarQ4kTQvlJ4RBPL_wtPb9XJFJ-TQ70eNm2P6AsJuric0Ji1BYVpFG%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/6ljiHk5-39Y?embed_config=%7B%22enc%22:%22AXH1ezmdWH7nK26nuB_nE-ulSnaExhWjBrwgV3HB7t_7tBJWUy2rjTzLgYFKi0XChgPerm2ZicktWkH60pYgP2AfUh6qGydbamKY4RY_Mun_pUNMj3wncmLK80dup1ET8pFQ6fvKmrMq866AH3UAjK3ObUXpW3m4gEjeoSSLlj-WzUgwYi2jWg0QOhkP2MiZUyC9n9l30zIluKa2ZjNsEKFMvqX9Wjys8Duvqz7uv_mtMntoADtEctlB_TvAcof0ZjLi5nh-MCNZ5eHnCMv7CjZe2yvEEE_41jQ8-jkftbxCCyAVFaliKglfhDSBvND1yfsSv0r_jUzQeYr8uCycgRXlM9AEOy0Y1TG6Md4vLSy3Qg%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=6ljiHk5-39Y"
         }
       ],
@@ -604,7 +604,7 @@ const RENGGALI_DATA = {
       "project_name": "Citra Renggali Sakura",
       "location": "Simp. Basecamp",
       "project_url": "https://sites.google.com/view/citra-renggali-sakura/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sbqrnEDfaJGbR-BxSUQ9lkB67nfMA5-68s_gOXqH6VMJiTwO82mK5fyxgDIKMxEvaUR1KgGuK4DK5pVC5gOOUnUWn8vPrwaMQq17duumINTHr-vDmK5i0ZGEuER4ytHVwrlHxwE8ij7YlZKnr0n9MtAj6JkDekcykYCnqvyIGPFN8G-uDHwECkjrvaR0gSLwjHxH5Ni_rxxQi5QNU4iQOZT_Aw7eSOK5e_-f-kZu0=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sh3gD98EIOkkPerEvRW3GuA7EJ06JyqH248NQBqtfAi1MCkCf5IRDeUfpMJU2sFp1icyTFYkWNarlcYksH22dH7QtCpOE_bqyrhe6zP1NMOyIXxFAZPGvrVwz2UmS8jSjpEf0u-JQdyQb1t3ZerTGNkZD-QvE2z6poQ2veJ6d-gihTjn7DWEBytKXMNiPQSKW9B7nCDYdGlSLTOJy3-VGrCQQEANx2KKsbkoHvdpY=w1280",
       "promo_summary": "PROMO TERBARU | Gratis | : SHGB, | AJB,",
       "promo_details": [
         "PROMO TERBARU",
@@ -636,7 +636,7 @@ const RENGGALI_DATA = {
         {
           "title": "Perumahan Renggali Grup Batam",
           "video_id": "6ljiHk5-39Y",
-          "embed_url": "https://www.youtube.com/embed/6ljiHk5-39Y?embed_config=%7B%22enc%22:%22AXH1ezlasI0-kqAc3defR8g13ZcpPSXssxNzqGVRs_VjJPsxaxdql1NHSi5fKPO70hCCl_yWzSzhdj4ujjz5cGLpDHaomMhaJfancdvcxT4oF-g-Kv0s1hWifoRwlBpBlDWtJ2T41_CbG-DlkQcOlm7xqnNXlVjhBSo6x2h1tXgiWqyx%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/6ljiHk5-39Y?embed_config=%7B%22enc%22:%22AXH1ezn-aaQC0n6Uls_-qqCBNq0d4Zi8biRT-Se1QoBG62a_UTZiRKuJ-SbsyhkJDNgDeIKsuYR56cCv8MJHBMxDV9-XeBy6LxknHSIVrzs4V_seQXwpfhtI79eoMNvWxtcrOaNN4nIDTBkg23ENgnhGbaGl85PEtxMZFB9GOjTNWKbgadJaMad4jTjUfm7Qsb_Vun0FMVZN2_Jb4yzTXmhK2BP1mPRck9iuomaG9c_aH3vxDM5MB08h_h8iw0sY3YpKL8s-I421Lip8Mc58nQYumikErXyVKQYM0Q4WVP-LBsQ10EjDwAxRjBi35BZvR9MYfdhSaMPEqGj9HoicTKtuD923g-gW6Vcq24KPwcz6Fw%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=6ljiHk5-39Y"
         }
       ],
@@ -671,7 +671,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Asoka",
       "location": "Simp. Basecamp",
       "project_url": "https://sites.google.com/view/renggaliasoka/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72tHWpUBxIL92UTDN1vlX_2obFlX-5fYMaFt7UakmFQXhxeDGlOBTDRaR8yrbHYNBPA5f9P2b18WH806RXOTcisooAYmawGACC7r_KAe9pH9kysje0CNcoJd0sHsrKaWGHPZnHDUOAgWy8KaED5t0jG4W00Cd5-oCBiXdqX1r1RODl84NIEvK8m9F_yqA2gD6jHnsYm-TyeG_rqGEFEItiXV1QWUGZNm_9q87Lxdvjc=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vGFDt3kN-5GN5gwFzE3NYXrPiTo1puVJYIuUd4q9zaPlOQTppvI4-uojXdPfJRRqViXfvBdrMhf_Jh4xXe5ok0HmIQdhLn_XJOCkdPYATUm4iX_lELIM6Yu4TkIY3FgLXBZxZAvTy6cPNI5k7WIDgFg-zYtqvUv9J0wDMIQ7nT0qImi-YE3t9tI7Yeg5fik1k5tCN40pd_7gwUdztz3N0xm1byBqDb_BIQLOGeJGc=w1280",
       "promo_summary": "PROMO TERBARUu | Diskon | Gratis | : SHGB, AJB,  UWTO | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARUu",
@@ -704,7 +704,7 @@ const RENGGALI_DATA = {
         {
           "title": "Perumahan Renggali Grup Batam",
           "video_id": "6ljiHk5-39Y",
-          "embed_url": "https://www.youtube.com/embed/6ljiHk5-39Y?embed_config=%7B%22enc%22:%22AXH1ezlTXFGUxOQB8akZTnj2YyrjWR2rU7l5k2LMu0WYimp-RwxY7Umm-2XqLdUxRsSJJzt2dcdpHYEeyK-WDAGItl69Q_xLIuUV4ktJZMVYTEjPd7QC4FrTtWpDR0ldWPNhWRZmU-QqVfWZOdjUNOtLjQ_UEgxXBphPnmvhIU6q2LMZ%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/6ljiHk5-39Y?embed_config=%7B%22enc%22:%22AXH1ezk7wYCnKk6h3tppDHsRVubUEjftWmVkH2FP75w-uWL2JEQX9g3eOBX6QIAOnoxqY6IET5Ik_2RmoQcGypTlSWMAkDWzeXp1E59ttwM2vYaDJ3k_00XUmCwCGUCd-ZgCHAPo0qomL6yGx_IZBkcbc5W877lN8fTdwvTtV34JCI4ai9WmyMfVUi6Q0PkjO3bRcLBYeC4D-SR4aPkHelkblyRFshe8g6JvwcEDppwfEgN2OUHznoL-LHIQ6OpEHq57DJGXXMYKmTSDxXlZq5UOubzGujlljQ8_8kzmuMlyMypU_gHEIWpdcRus3isxzsj8HSmrEDn82f_Jljd_8bWCy3-ZXf4YMfqbG7vFSNmyBw%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=6ljiHk5-39Y"
         }
       ],
@@ -739,7 +739,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Fantasy Namsan",
       "location": "Simp. Basecamp",
       "project_url": "https://sites.google.com/view/renggalifantasy/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vTgMBn2IsgTa_o8Gxr9202rk53LrrKjMKTdcV0FAVhQEUsL9jop-w7-rnSf8rad5AjOScexCTYrjI09xFfiL3m2imyPozQ1OdqgKYEEGBGnqy_gS9N2Ew33pWclRHsCi-Palp5oGkqNy-b0Vv30cHRFA2auu-1_0zuP0orIaga-GAF4p3VgSMXaCOw-FX71M9Mih7S3soltsGfppfoEp7R83q2GF6WYDBVnA=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vRszH9MX5SRH3EarAo9g66ymtjczm4O4cXC8j3jPWayIjOomOK6YTsHT5J5VHypQKfBSXuzm5uy46PdCbdD3bYmz510weqxdH8G3p6a4URGTh0wV393MJ2NL4pG4Cuwc4wnIl74eQsMVdrDiNprbCi5N9FPu7AKF3TpA7oAtEpZYvPlOh1NQ7DGb67DEVTUjFDnPfJQGT_z3bsm6Qf9P0cx6A2tN-5wCP5qQ=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, AJB, UWTO, FREE DAPUR & RUANG MAKAN | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -781,7 +781,7 @@ const RENGGALI_DATA = {
         {
           "title": "Rumah Subsidi Batu Aji",
           "video_id": "7zCvCtqLjwY",
-          "embed_url": "https://www.youtube.com/embed/7zCvCtqLjwY?embed_config=%7B%22enc%22:%22AXH1ezm8Rk6ReOXOs73-fg8Ww1DpZd4RDM_X63oNIIhykYkOfzhuIiJgfxwH4C-BlluYIr1a32C5UC5RjwNlSshW-2b1Y-puAUyCDd6nJsxaEzrGC-mHFU767yc7vFMThVrDBu7D6pUy8gtMGGVJc-By6vS2trMOxkc5gcBRzgtZllpM%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/7zCvCtqLjwY?embed_config=%7B%22enc%22:%22AXH1ezndpQqlbEoRzmM7dx3t7y4gVYZHlRSgnuXHi78MSP39JkkdxumPUmi2Ekqww2NATTqjSRto3khN9ImL3kSIXm0XSmMsr8HU-MRdPK_RwN1Wmsm0KUYtVIxMT7WMdMwIeGhG1PTmL2IuGd8OH7vtclj845pEc2USAqbIji27fq0u3_VPwJptfsb8Dowp-9oWk01ND6c8aeouAMp-Hdgf0thjgRZlNuyARj26cxxraNLfa8M1dNlGRDUxB8DSRMxpeWN4FhI7DeyUPN9pt4YMMcOXqi7nx0qnzENK3I3cFbl6-6egWyH0EOpHGcRp5afP2d28ed1DK7xTV1i2azWjptwze6PtMxKmAAjRxz4iLQ%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=7zCvCtqLjwY"
         }
       ],
@@ -816,7 +816,7 @@ const RENGGALI_DATA = {
       "project_name": "Perumahaan & Ruko Sumberindo",
       "location": "Tanjung Uncang",
       "project_url": "https://sites.google.com/view/sumberindo/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sglJHT4dzbLj2X-zGTHTEO3nupJvImpTzkseQ2ljReelEhmWyvRvqNMMs41hPTbdA5TCdZVqJDwkeM6r-33u_URda_hqNEIrmaJADHM8bmwLhc0yeoeVdUOfwroJap1SM0hAbfLRKKvxyvqLAo2gvlTqU6dyCIqRaK1Z-qH_9ZrpIivd9k4Ub1gzVBEODKhakUSdwGkhPJ_CVXLzEL3U-VuknMSz9iwLPbMqyU=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72tS_2Y8wVkUD4lxJdHZl4mJ2sQ8Q3OhbCPBKNbnppHKMoJnX1U5sf6Ej1Cf18euOBxbcwiv17FjeYNdL8H5Ev5jSxqzb8ylrH9BaBFig2GjehTRFZyr63klGIilR554B3sF_6tCTRt1qnghqAO7w5eZSinx7phA_VzyZoJ6iFwVsPudIiDg1lMpxFvA-Erc7-1pX9rW0m-Igw3K-xb-GHeNz5S0OPzj5XrgcAXA=w1280",
       "promo_summary": "FREE REPAIR | Gratis | : SHGB, AJB, | BPHTB | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "FREE REPAIR",
@@ -877,7 +877,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Sitalasari",
       "location": "Nongsa",
       "project_url": "https://sites.google.com/view/renggali-sitalasari/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72u4SB9YFTYR2Ov3c_KyRs2pmyJYbewwOS2DeWZ8rL3yoeG1o9VJBrfm0Em7setPjdRTnr1gZYX9lrLtmr2KeFlIZfnynNJJgFLFpppaFtkD-6uF8gTUz_a66R-J-GbgjRJypoxCUeVVxUa3dLLz3ZGksFq6nK2kf9lFMDa7MrIDnEh2KSFWbX5QQee0sjpK00_3hEszf-hBPyCi3wPScZ4kLbagUVWodpJspT2gMac=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72tvyCbxLLvlWc5Ry5PRtb-ab4YYX_6GQBdbZOkFva1k7l3XlTL8rCJZYTbsEGtwd67txqDNgTLbM9p1wK7YmOPF7FgKhbRrBp9Bwb28bRKk1o4Mt-gPYarDep7IznbQw16gv8kmAyJ_9dz-tECQiYSeB37ITY2Ti_p5PuWXRDOVpdXF5qZVEUxHfEpIg542sTryxT0dE_wKNq4h26L_pXUN-gA-a5QZO5AkQdpcvW0=w1280",
       "promo_summary": "PROMO TERBARU | GRATIS: AJB, SHGB | Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -934,7 +934,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Nongsa",
       "location": "Nongsa",
       "project_url": "https://sites.google.com/view/renggali-nongsa/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vGMPUGFGz8YaihhkSgoi0jlh8T7BRMjylWBUHVLJfGPcIbAETj8VjxHFvrag_zshj8XzOckng91YgOTg00Bg-uK2fANXYlugpO9BlTQZotVM97z5BvEXY8cxa3vjVMgYp2LrWRv46mfxUSyzE1lEfeoN06ZRmV3Ep6b_4bVpKpo2yRYYH6S5IBTU-rabQFjAFki_OeEzUvZj8fMOgcrnBLU-gB1TVYVOZfi2zL4rY=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sd6D-esxlCjJLDrJ9mqFlF3CWALsWDFMzdUXvY9S2x-YLOwhKOkAQlTrpF_x9t595yv7hOz-DfCP35m2_YzGHMuiCXI7RNVrKREizVqaLfP_ukfycxcnT3hM8zI23ejsLqe5eg_Nuy2J8VUfuvZPO6kf2pRLxtLK0J_Q3ihaAIZu023trF_oOU59oqOcOZhVI2d_h9CMZrkqW7imvKM4G1UiEsiMqyTm8WQF9tJa8=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, AJB,  BPHTB | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -986,7 +986,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Khalifa",
       "location": "Batu Besar",
       "project_url": "https://sites.google.com/view/renggalikhalifa/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72s3XNiK0ghHUc07Ks4L6mZmfm0kexgleNadOGp3OFVtVaBrV9c9VaUdgSfnVGMZZgUoROpwEv1dpbjrYUNbKZRzWzzkRPJOiAZzXrpL-_MObXYdXqQYw-S7tl22i9zkpgVHaoXPPXhbtFes5BhMwoJ662NM5JbpsnS0ln1nOMfNAOxM2PT6BHfGFNcZFdh3gT7kogxfc54WOx8ADA5dy98bRX5dfsRxVmGC19aL13s=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72uu0Fpw6Tlw7mgQ1f9yT2IN0NAf0N7XhyzMfw3gnAQExIvv3L6I9ApEuVKYvZ_7yOqsw0GKskilIRan9H2X1eBzxSv8xUb9fJuxtF0NYs54xqNjdqluatsSZYhrYB_UPpLX1ommC_VGlZmfKusD6UwsI45usnPHt6oaVQz5M9iJiyinpYT-bem2zOexxMGrrfKW_DUtPQYBbCgopxVtugoAYtzsWydsAcNFWiNYijg=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, AJB,  BPH | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -1019,7 +1019,7 @@ const RENGGALI_DATA = {
         {
           "title": "Menang Banyak",
           "video_id": "nXcY6qavGro",
-          "embed_url": "https://www.youtube.com/embed/nXcY6qavGro?embed_config=%7B%22enc%22:%22AXH1ezleEoLHwrR2oIXWLzRMpOlCSJKFUhfSe93f7TbIz0FmaHnIB8B4O-yPu9lbBfF_K2d9K-rEm-9rySm6aVjvW5JLZia19jDMblE6i1MRdFzEllgTYshQDFM8M-UFZneFErnq6U-zyfIFDC2qIcGq5s5Qod6WGRzbmYXMnmkv5WyE%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/nXcY6qavGro?embed_config=%7B%22enc%22:%22AXH1ezmuRBStJdTOWpGk6RrzeJ3iU6dKWuJWu2amoJmUAv70SoUWp_c6JDJAp4eGZUdY7egNZXI5a3iL0ziYM5iWjoOSzSXMnaTJWt72dfZGlxlCMsth2gt8CjYIlDMa4rvLZeCUayZVyiGp4cWVXE5FOsqP5G_8vhdIe5xESLeZGhW1NMwL6AhW-emq9tmEQEFCDblqBV2iaMzQQRjNS0F4WiXDEsH8DGABX3C0oa2sSPXBgl-QTcSA3Fp9B4cidf8BWM56OTEMfpNpevRjwitZCe-rQcoaKkLboK1iGlPrzWCl-EAcQUfeayu3kAuGTGHk9dxdT1bX-y1s6Mo4DYADseMgbvcr1ug614FNtbTt6w%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=nXcY6qavGro"
         }
       ],
@@ -1054,7 +1054,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Nongsa viory",
       "location": "Nongsa",
       "project_url": "https://sites.google.com/view/renggalinongsaviory/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72t55RNO8lwo1PXcWGqctArZzbaaD1fA2Mj5tbpDq-riqPDIv-1iCSpue5JtUS5Pdfs9rzc0nsF0LBs1HROELsUPI-_GIDSBghskGJ68jNvtMz5hqnkcrNaYRpo0axarKr99CMUsS8-ZwyR2hErLzk_Fe10B73-bqz2PlcvH0FYIjgiQ77GwlthPFFpusby7kOkf9hXJb7kcCcVuyI4MmYfCM_KZWOJ7Ad9B=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vLD_pBGbivM-lSA_mrEsG4TcI37eOPhdWcAFeKo1RifxQXDGBwV0Vy01ycot0amb_CIzzUIXo0sCfdDXNk6Iynq2W-BQWtKY3-oIyqorE1r6AVIKqW3ys5-7v0sLrve9cC1f214ioStE9OcEONBc9EYjFGyhQ4s5VgqV3zlCDxs-sWL1JLyYYZguS-X2Cd2rU4OecxE0Z0wa7GFvTI7KWpoB_0-jibvLH8=w1280",
       "promo_summary": "PROMO TERBARU | FREE | FREE  SMART DOOR LOCK | Gratis | : SHGB, AJB,  BPHTB | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -1116,7 +1116,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Visco",
       "location": "Sei Daun - Piayu",
       "project_url": "https://sites.google.com/view/renggalivisco/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72tc-1vJl9ytpPbFG9LMlvdU_MV9PwCGTgnskIzTiy3XO2cuFBi46n6HETOaoOi1L8hShET2k0GaFwFqVFFkyCGJiNv5hq-qKK5wiFlCy9vMOkxtpy95ekQIPbIRgeQWojl9_hD0hsD_f_UMv75cd4wNSuMbrsdbW991u70P5Q4IRe--Z7E2pF6hjPE1QoFWNL_7m2mDTyjV2enGw1ukJy3E5CWMGpM0OiYc9zPUq24=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72sgdfRcCWTUkdonv2zkydin-luhUkb7a4Y8XICsiE7ePy7IN2-9zjnFIuyHX4LOLBZmoJ8KSbMb2Q7fq02YMQBZ3sJ84gddOByE-RMer44XhJspI6TdUnR7rmopB3-hvyXWxIw-BkwgsGwchOUANMc0YfnR6uKfMg-yUDs_ToY_owjN1PGWt-b6vvb3A2lV2q-9hCiT1DcWyDJUFKifmQ3k1YQJdManwx9q3cLYLr4=w1280",
       "promo_summary": "PROMO TERBARU | Diskon | Gratis | : SHGB, AJB Dan ( | BPHTB - Unit Hook) | : Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -1150,7 +1150,7 @@ const RENGGALI_DATA = {
         {
           "title": "INGAT RUMAH, INGAT RENGGALI",
           "video_id": "uU3lWpaF7PQ",
-          "embed_url": "https://www.youtube.com/embed/uU3lWpaF7PQ?embed_config=%7B%22enc%22:%22AXH1eznY6U7VmYvFkbYIeCxCKl0QOcXJc8yA2Bwu6pKYNwUhQvCt2xHsWYOxeBXg9ShK6UIRPKIRcWuu3U2VjZnwKoSjzE7es8kes_ngOkgS22R7zPG-qCNrkcJJsblA3PYKcsCZThGNSbry7n2JnxoNHrrIGIFDfER054xb83wwEfTw%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/uU3lWpaF7PQ?embed_config=%7B%22enc%22:%22AXH1ezmFB6vlWT2L71rwfUvu2q-5TgUp7nRgMnzAPvbYLPAUd91DcO-P77IyrTGCmZVKLxSDXY_TuJ3rCcVRzWa_KuOT7yOPym02m2YuVdcB-mq89m4CDmWXHhBnFnsG2C3je9c4UEiGJX7w1FhxcqFCuw9J8oJxFD8Ta9SbF4qUdshAJrQ5H3GDxhp5NYAsr-JuplfKlMC3JJ8I9lK2GtYwks0qsGDblnSnGWhWgbzrnhxWUJMzpfChNq7oYsmrj_Pg-zQFBeA_2oGf-esafBMBCxznN7F-wfKyUSrxV1sQnN11VB27le2tQ1BwCUCOjssGd_NVHj92dizvSbHbC0hdR7lVJikcw-rBHRsYBZMV4w%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=uU3lWpaF7PQ"
         }
       ],
@@ -1185,7 +1185,7 @@ const RENGGALI_DATA = {
       "project_name": "Renggali Silimakuta",
       "location": "Putri Hijau",
       "project_url": "https://sites.google.com/view/renggalisilimakuta/home",
-      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72vKyuCbJKL0LCrrQL5nS04FQRTtN77fAaCnps4hg_fZL6s_QKTnMBYDAjTjGKudvB5Z3eKpuDUGNuyurv6GhFtq1gc0R5OHWJHXOhsI_iWC14jm78VQDi42UuCHIehi53QxYQQ7Swi1YinLqfRAKBz3myRF_2iiRWpa6iKseLl1tnN3SjGxk-AYxFLmi_OVx4VIdtb-gT6GrAFcbKCHwd-5M-KRqxGnJ5Wn8tlwx_I=w1280",
+      "image_url": "https://sites.google.com/sitesv-images-rt/AMxu72tg3ootr7I7mNBEJbGFct2CDznW9xbVNs5EKqYIy_RLumn_3542vxaB56V4ge9JKAZ1ITjKHNsn0HB0tKhvsoBSsF9icnbVLcAhOonK7qM_lXeQ7y9gFaBNar2thsp-bZB5VE7pv-936HnxLFFT6nLd0Mje3MviCGVdh0TSDBzIzz_17DL2H4gjNA1GJDc32JDhhpuwUrJVsWajv80yfpSwmCMoMX0lITiu5W74A9o=w1280",
       "promo_summary": "PROMO TERBARU | GRATIS: AJB, SHGB | Promo & Harga Bisa Berubah Sewaktu-waktu, Cek Sesering Mungkin!",
       "promo_details": [
         "PROMO TERBARU",
@@ -1216,7 +1216,7 @@ const RENGGALI_DATA = {
         {
           "title": "INGAT RUMAH, INGAT RENGGALI",
           "video_id": "wHe2Pdh2DGU",
-          "embed_url": "https://www.youtube.com/embed/wHe2Pdh2DGU?embed_config=%7B%22enc%22:%22AXH1ezmp0Qe3vrftUV-k2thoNZMPp16Q_ssbWStnGqgj80CjKBx2oAsXeIiQy9B_pSx8oqCVG2_eNJkEFK2dZayO7SYyNsU0o_AICFd8dlYarz7lqRicJkd_D8Hzuv_8QECab-BKEXLOyJrEvF6OHf1tylY6QBcpkx4BX-Fr5Uc1Givx%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
+          "embed_url": "https://www.youtube.com/embed/wHe2Pdh2DGU?embed_config=%7B%22enc%22:%22AXH1ezkR-dVrxwwSC5klNbXGcZsysixd0u9UEtugCFyxqKGRBV-vTssQoy2wWXGSiEuUHNjmcNCHwBDNEY0NcOuAZCJrwkkMabE4t9RMEJKbl-yvDU-inpCVfs2fKYYOgAAogWjtwpTCFmBZerWbRggreIHIYu3fgVAk7dBb7KcQ0Ba_-FU9pHDnhZqC5bSQllr5Pn-dB2IEkNVp8nh7xugHAefO8fvKjGFVYEjYWoL6b1QXPC2f-82oG52p3We5krl_AKmtP4J-vfz5Zc6-_KuF4_H5Kmmd1BZP1a_TQBekUEw32QN4unBkHRRNAws-DZ-ukxMAeRp07KkFrXt76xixmQTdjyIeoen8zVu4oR2mcw%3D%3D%22%7D&enablejsapi=1&errorlinks=1&origin=https://sites.google.com&vl=1",
           "watch_url": "https://www.youtube.com/watch?v=wHe2Pdh2DGU"
         }
       ],
