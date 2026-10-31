@@ -1,0 +1,6 @@
+.git
+__pycache__
+*.pyc
+*.py
+requirements.txt
+.venv
