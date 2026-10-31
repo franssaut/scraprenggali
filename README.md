@@ -1,38 +1,69 @@
-# 🌐 Web Scraper & Portal Properti Renggali Group Batam
+# 🌐 Web Scraper, Portal Website & Bot Telegram Properti Renggali Group Batam
 
-Aplikasi web scraper dan portal showcase modern terstruktur untuk mengekstrak, memvisualisasikan, dan melacak seluruh proyek properti serta transaksi booking unit dari situs resmi **Renggali Group Batam**:  
+Sistem terintegrasi lengkap yang terdiri dari **Web Scraper Otomatis**, **Portal Website Interaktif**, dan **Bot Telegram Cerdas** untuk mengekstrak, memvisualisasikan, dan melacak seluruh proyek properti serta transaksi booking unit dari situs resmi **Renggali Group Batam**:  
 🔗 **[https://sites.google.com/view/proyekrenggali/home](https://sites.google.com/view/proyekrenggali/home)**
 
 ---
 
-## ✨ Fitur Utama
+## 🌟 Ekosistem Aplikasi
 
-### 1. 🖥️ Website Portal Interaktif & Terstruktur Rapi (`index.html`)
-- **Showcase 17 Proyek Properti**: Tampilan kartu perumahan & ruko modern lengkap dengan foto banner, lokasi, dan ringkasan promo.
-- **Pencarian & Filter Canggih**: Cari nama perumahan, blok, atau filter berdasarkan 7 wilayah strategis di Batam.
-- **Modal Detail Proyek**:
-  - Ringkasan promo dan syarat & ketentuan resmi.
-  - Tautan lihat (view) dan unduh langsung (direct download) seluruh dokumen **Site Plan** & **Price List** (PDF Google Drive).
-  - Pemutar video YouTube lokasi & unit perumahan.
-- **Live Booking Unit Tracker**:
-  - Tabel transaksi booking unit real-time (116+ data) dari Google Spreadsheet.
-  - Pencarian berdasarkan nama konsumen, sales, blok, atau kode perumahan.
-  - Filter skema transaksi: *KPR Ekspress, Cash Tahap, Cicil UM, Batal*.
-  - Indikator status berkas & *Sisforum OKE*.
-- **Panduan Wilayah**: Penjelasan 7 kawasan strategis proyek (Tembesi, Simp. Basecamp, Nongsa, Tanjung Uncang, Batu Besar, Sei Daun - Piayu, Putri Hijau).
+| Komponen | Berkas Utama | Keterangan & Akses |
+| :--- | :--- | :--- |
+| 🚀 **Portal Website (Live Vercel)** | `index.html`, `data.js` | **[https://scraprenggali.vercel.app](https://scraprenggali.vercel.app)** |
+| 🤖 **Bot Telegram Interaktif** | `bot.py` | Navigasi katalog, unduh PDF, & cek booking via Telegram |
+| ⚡ **Engine Web Scraper** | `renggali_scraper.py` | Ekstraksi 17 proyek, deep crawl subsite, & live Google Sheets |
+| 💻 **CLI & Local Server** | `main.py` | Menu interaktif terminal, server lokal, & runner bot |
+| 📊 **Master Data** | `.xlsx`, `.json`, `.csv` | Ekspor komprehensif ke Excel, JSON, dan CSV |
 
-### 2. ⚡ Scraper Otomatis Python (`renggali_scraper.py`)
-- Ekstraksi otomatis katalog 17 proyek dari portal Google Sites.
-- Deep crawl ke seluruh sub-halaman masing-masing perumahan.
-- Ekstraksi file Google Drive (Doc ID, Preview URL, View URL, Download URL).
-- Pengunduhan otomatis lembar spreadsheet *"Info Book Unit Hari ini"* (Google Spreadsheet ID: `194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8`).
-- Pengunduh berkas massal: PDF (Price List & Site Plan) dan gambar banner JPG.
+---
 
-### 3. 📊 Multi-Format Data Export
-- 📑 **Excel Workbook (`.xlsx`)**: 4 Sheet terstruktur (`Katalog_Proyek`, `Dokumen_Drive_PDF`, `Video_Promosi`, `Info_Booking_Unit`).
-- 📄 **JSON (`.json`)**: Data hierarkis lengkap untuk integrasi API/Database.
-- 📂 **CSV (`.csv`)**: Berkas tabel per entitas di folder `output_csv/`.
-- 🌐 **Web Data (`data.js`)**: Sinkronisasi data otomatis untuk tampilan website frontend.
+## 🤖 Bot Telegram Renggali Group (`bot.py`)
+
+Bot Telegram interaktif yang memudahkan agen pemasaran, sales, dan konsumen melihat katalog perumahan, mengunduh file Price List & Site Plan PDF, serta memantau status booking unit secara langsung dari Telegram.
+
+### 📋 Fitur-Fitur Bot:
+- 🏢 **Katalog 17 Proyek Properti**: Menampilkan daftar perumahan lengkap dengan foto banner beresolusi tinggi dan ringkasan promo.
+- 📍 **Pencarian & Filter Wilayah**: Filter cepat berdasarkan kawasan di Batam (Tembesi, Simp. Basecamp, Nongsa, Tanjung Uncang, Batu Besar, Sei Daun - Piayu, Putri Hijau).
+- 📥 **Unduh Dokumen PDF**: Tombol direct download untuk Site Plan & Price List resmi dari Google Drive.
+- 📊 **Live Booking Tracker**: Menampilkan ringkasan status 116 transaksi booking unit (KPR Ekspress, Cash Tahap, Sisforum OKE).
+- 🔍 **Pencarian Cepat**: Perintah `/cari <nama>` (contoh: `/cari asoka` atau `/cari tembesi`).
+- 🔄 **Refresh Data Otomatis**: Perintah `/refresh` untuk menjalankan ulang scraper secara live.
+
+### 🚀 Cara Menjalankan Bot Telegram:
+
+1. **Dapatkan Token Bot dari Telegram**:
+   - Buka aplikasi Telegram dan cari **[@BotFather](https://t.me/BotFather)**.
+   - Kirim pesan `/newbot`, lalu ikuti petunjuknya hingga mendapatkan token API HTTP.
+   
+2. **Setel Token di File `.env`**:
+   - Buat file baru bernama `.env` di folder proyek ini (atau salin dari `.env.example`).
+   - Masukkan token Anda:
+     ```env
+     TELEGRAM_BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ
+     ```
+
+3. **Jalankan Bot**:
+   ```bash
+   python bot.py
+   ```
+   *Atau jalankan melalui menu utama:*
+   ```bash
+   python main.py --bot
+   ```
+
+---
+
+## 🖥️ Portal Website Interaktif (`index.html`)
+
+Website responsif modern yang sudah di-deploy di Vercel:
+👉 **[https://scraprenggali.vercel.app](https://scraprenggali.vercel.app)**
+
+### Fitur Utama Website:
+- **Showcase 17 Proyek**: Kartu perumahan dengan badge lokasi, indikator ketersediaan PDF & video.
+- **Pencarian & Filter Real-Time**: Kolom pencarian instan dan filter pil wilayah.
+- **Modal Pop-Up Detail**: Info promo, tombol *Preview* & *Direct Download* untuk file PDF Google Drive, serta pemutar video YouTube tersemat.
+- **Live Booking Unit Table**: Tabel 116 transaksi dengan filter status KPR/Cash, pencarian konsumen/sales, dan pagination rapi.
+- **Pusat Unduhan Master Data**: Tombol unduh langsung untuk file Excel, JSON, dan CSV.
 
 ---
 
@@ -41,11 +72,15 @@ Aplikasi web scraper dan portal showcase modern terstruktur untuk mengekstrak, m
 ```text
 scraprenggali/
 │
-├── index.html                  # Halaman Website Portal Utama (Responsif & Modern)
+├── bot.py                      # Bot Telegram Interaktif
+├── index.html                  # Halaman Website Portal Utama
 ├── data.js                     # Dataset JavaScript otomatis untuk Website
-├── main.py                     # CLI & Menu interaktif scraper + Web Server lokal
-├── renggali_scraper.py         # Modul inti logika scraping, crawling & ekspor
-├── requirements.txt            # Dependensi Python
+├── main.py                     # CLI Menu interaktif, Web Server, & Runner Bot
+├── renggali_scraper.py         # Modul inti logika scraping & ekspor data
+├── requirements.txt            # Dependensi library Python
+├── .env.example                # Contoh format file token Telegram
+├── vercel.json                 # Konfigurasi deployment Vercel
+├── .vercelignore               # Berkas yang diabaikan saat upload ke Vercel
 ├── README.md                   # Dokumentasi lengkap proyek
 │
 ├── hasil_scraping_renggali.xlsx# Master Excel (4 Sheet lengkap)
@@ -63,80 +98,49 @@ scraprenggali/
 
 ---
 
-## 🚀 Cara Menjalankan Website
+## 🛠️ Instalasi & Menjalankan Scraper
 
-### Cara 1: Langsung Buka File HTML (Paling Cepat)
-Cukup klik ganda (double-click) file **`index.html`** di Windows Explorer. Halaman website akan langsung terbuka di browser Anda secara offline dengan data lengkap!
+1. **Pasang Dependensi**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Cara 2: Melalui Perintah CLI Web Server Lokal
-Jalankan perintah berikut di terminal:
-```bash
-python main.py --serve
-```
-Browser akan otomatis terbuka menampilkan website di alamat:  
-👉 **`http://localhost:8000`**
+2. **Perintah Cepat CLI**:
+   ```bash
+   # Scrape ulang seluruh data (update Excel, JSON, CSV, dan website):
+   python main.py --all
 
-### Cara 3: Menggunakan Menu Interaktif
-Jalankan:
-```bash
-python main.py
-```
-Pilih opsi **`[6] Jalankan Web Server & Buka Website di Browser`**.
+   # Jalankan Web Server lokal & buka website di browser:
+   python main.py --serve
 
----
+   # Jalankan Bot Telegram:
+   python main.py --bot
 
-## 🌐 Deploy ke GitHub Pages (Gratis & Online)
+   # Unduh semua file PDF (Price List & Site Plan) ke folder downloads/pdf/:
+   python main.py --download-pdf
 
-Website ini sudah 100% siap dihosting langsung di **GitHub Pages**:
-1. Buka repositori Anda di GitHub: [https://github.com/franssaut/scraprenggali](https://github.com/franssaut/scraprenggali)
-2. Klik tab **Settings** > **Pages** (di bilah kiri).
-3. Di bagian **Build and deployment > Branch**:
-   - Pilih Branch: **`main`**
-   - Folder: **`/ (root)`**
-4. Klik **Save**.
-5. Dalam 1-2 menit, website Anda akan aktif online di:  
-   👉 **`https://franssaut.github.io/scraprenggali/`**
+   # Unduh semua gambar banner ke folder downloads/images/:
+   python main.py --download-img
+   ```
 
 ---
 
-## 🛠️ Perintah Scraping & Pembaharuan Data
+## 🏢 17 Proyek Perumahan & Ruko Renggali Group
 
-Jika ada pembaruan data pada Google Sites atau Google Spreadsheet Renggali Group, Anda dapat memperbarui data kapan saja:
-
-```bash
-# Scrape ulang seluruh data dan update Excel, JSON, CSV, serta data.js website:
-python main.py --all
-
-# Hanya perbarui data transaksi booking unit:
-python main.py --booking
-
-# Unduh semua file PDF (Price List & Site Plan) ke folder downloads/pdf/:
-python main.py --download-pdf
-
-# Unduh semua gambar banner ke folder downloads/images/:
-python main.py --download-img
-```
-
----
-
-## 🏢 17 Proyek Perumahan & Ruko yang Terdata
-
-| No | Nama Properti | Lokasi Batam | Berkas Legalitas & Pricelist | Video Promosi |
-|:---|:---|:---|:---:|:---:|
-| 1 | **Renggali Residence** | Tembesi | Site Plan & Price List PDF | Ada (YouTube) |
-| 2 | **Taman Anugerah Residence** | Tembesi | Site Plan & Price List PDF | Ada (YouTube) |
-| 3 | **Anugerah Renggali** | Tembesi | Site Plan & Price List PDF | Ada (YouTube) |
-| 4 | **Cluster Ivory** | Tembesi | Site Plan & Price List PDF | Ada (YouTube) |
-| 5 | **Cluster Orange** | Tembesi | Site Plan & Price List PDF | - |
-| 6 | **Ruko Taman Anugerah** | Tembesi | Site Plan & Price List PDF | - |
-| 7 | **Citra Renggali Marina** | Simp. Basecamp | Site Plan & Price List PDF | Ada (YouTube) |
-| 8 | **Citra Renggali Sakura** | Simp. Basecamp | Site Plan & Price List PDF | Ada (YouTube) |
-| 9 | **Renggali Asoka** | Simp. Basecamp | Site Plan & Price List PDF | Ada (YouTube) |
-| 10 | **Renggali Fantasy Namsan** | Simp. Basecamp | Site Plan & Price List PDF | Ada (YouTube) |
-| 11 | **Perumahaan & Ruko Sumberindo** | Tanjung Uncang | Site Plan & Price List PDF | - |
-| 12 | **Renggali Sitalasari** | Nongsa | Site Plan & Price List PDF | - |
-| 13 | **Renggali Nongsa** | Nongsa | Site Plan & Price List PDF | - |
-| 14 | **Renggali Khalifa** | Batu Besar | Site Plan & Price List PDF | Ada (YouTube) |
-| 15 | **Renggali Nongsa viory** | Nongsa | Site Plan & Price List PDF | - |
-| 16 | **Renggali Visco** | Sei Daun - Piayu | Site Plan & Price List PDF | Ada (YouTube) |
-| 17 | **Renggali Silimakuta** | Putri Hijau | Site Plan & Price List PDF | Ada (YouTube) |
+1. **Renggali Residence** (Tembesi)
+2. **Taman Anugerah Residence** (Tembesi)
+3. **Anugerah Renggali** (Tembesi)
+4. **Cluster Ivory** (Tembesi)
+5. **Cluster Orange** (Tembesi)
+6. **Ruko Taman Anugerah** (Tembesi)
+7. **Citra Renggali Marina** (Simp. Basecamp)
+8. **Citra Renggali Sakura** (Simp. Basecamp)
+9. **Renggali Asoka** (Simp. Basecamp)
+10. **Renggali Fantasy Namsan** (Simp. Basecamp)
+11. **Perumahaan & Ruko Sumberindo** (Tanjung Uncang)
+12. **Renggali Sitalasari** (Nongsa)
+13. **Renggali Nongsa** (Nongsa)
+14. **Renggali Khalifa** (Batu Besar)
+15. **Renggali Nongsa viory** (Nongsa)
+16. **Renggali Visco** (Sei Daun - Piayu)
+17. **Renggali Silimakuta** (Putri Hijau)

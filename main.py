@@ -25,7 +25,6 @@ def start_local_server(port: int = 8000):
             webbrowser.open(url)
             httpd.serve_forever()
     except OSError:
-        # Jika port 8000 dipakai, coba 8080
         with socketserver.TCPServer(("", port + 80), handler) as httpd:
             url = f"http://localhost:{port + 80}/index.html"
             print(f"\n[SERVER] Server web aktif di: {url}")
@@ -34,6 +33,12 @@ def start_local_server(port: int = 8000):
             httpd.serve_forever()
     except KeyboardInterrupt:
         print("\n[STOP] Server web dihentikan.")
+
+
+def run_telegram_bot():
+    """Menjalankan bot Telegram."""
+    from bot import main as bot_main
+    bot_main()
 
 
 def run_interactive_menu():
@@ -48,9 +53,10 @@ def run_interactive_menu():
         print("  [4] Unduh Semua Dokumen PDF (Site Plan & Price List dari Google Drive)")
         print("  [5] Unduh Semua Gambar Banner Proyek")
         print("  [6] Jalankan Web Server & Buka Website di Browser (http://localhost:8000)")
+        print("  [7] Jalankan Bot Telegram (bot.py)")
         print("  [0] Keluar")
 
-        pilihan = input("\nMasukkan nomor pilihan (0-6) [default 6]: ").strip()
+        pilihan = input("\nMasukkan nomor pilihan (0-7) [default 6]: ").strip()
         if pilihan == "1":
             print("\n>> Memulai Scraping Lengkap...")
             scraper.fetch_all_projects(deep=True)
@@ -90,6 +96,10 @@ def run_interactive_menu():
             print("\n>> Membuka Website...")
             start_local_server()
             break
+        elif pilihan == "7":
+            print("\n>> Menjalankan Bot Telegram...")
+            run_telegram_bot()
+            break
         elif pilihan == "0":
             print("\nKeluar. Sampai jumpa!")
             sys.exit(0)
@@ -108,6 +118,7 @@ def main():
     parser.add_argument("--download-pdf", action="store_true", help="Unduh seluruh file PDF (Price List & Site Plan)")
     parser.add_argument("--download-img", action="store_true", help="Unduh seluruh gambar banner")
     parser.add_argument("--serve", "-s", action="store_true", help="Jalankan server web lokal & buka website di browser")
+    parser.add_argument("--bot", action="store_true", help="Jalankan Bot Telegram")
     parser.add_argument("--port", type=int, default=8000, help="Port untuk server web lokal (default: 8000)")
     parser.add_argument("--excel", default="hasil_scraping_renggali.xlsx", help="Nama file output Excel (default: hasil_scraping_renggali.xlsx)")
     parser.add_argument("--json", dest="json_path", default="hasil_scraping_renggali.json", help="Nama file output JSON (default: hasil_scraping_renggali.json)")
@@ -115,7 +126,6 @@ def main():
 
     args = parser.parse_args()
 
-    # Jika dijalankan tanpa parameter apapun, masuk ke menu interaktif
     if len(sys.argv) == 1:
         run_interactive_menu()
         return
@@ -155,6 +165,9 @@ def main():
 
     if args.serve:
         start_local_server(args.port)
+
+    if args.bot:
+        run_telegram_bot()
 
 
 if __name__ == "__main__":
