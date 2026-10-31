@@ -2,7 +2,7 @@
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Renggali Group - Portal Properti & Info Booking Unit Batam</title>
   
   <!-- Google Fonts: Plus Jakarta Sans -->
@@ -18,6 +18,9 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          screens: {
+            'xs': '420px',
           },
           colors: {
             brand: {
@@ -41,10 +44,11 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
     .custom-scrollbar::-webkit-scrollbar {
-      height: 6px;
-      width: 6px;
+      height: 5px;
+      width: 5px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
       background: #cbd5e1;
@@ -53,18 +57,25 @@
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
       background: #94a3b8;
     }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col overflow-x-hidden">
 
   <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white text-xs py-2 px-4 text-center font-medium shadow-inner">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2 mx-auto">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>Data Proyek & Info Booking Unit Terintegrasi Real-Time dari Google Sites & Spreadsheet Resmi Renggali Group</span>
+  <div class="bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900 text-white text-[11px] sm:text-xs py-2 px-3 sm:px-4 text-center font-medium shadow-inner">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div class="flex items-center gap-1.5 sm:gap-2 mx-auto truncate">
+        <span class="inline-block w-2 h-2 shrink-0 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="truncate">Data Properti & Booking Unit Terintegrasi Real-Time dari Google Sites & Spreadsheet Renggali</span>
       </div>
-      <a href="#booking-section" class="hidden md:inline-flex items-center gap-1 text-blue-200 hover:text-white underline text-xs">
+      <a href="#booking-section" class="hidden lg:inline-flex items-center gap-1 text-blue-200 hover:text-white underline text-xs shrink-0 font-semibold">
         Cek Unit Booking &rarr;
       </a>
     </div>
@@ -72,130 +83,170 @@
 
   <!-- STICKY NAVBAR -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
       
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-          <i data-lucide="home" class="w-6 h-6"></i>
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="home" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
-        <div>
-          <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
+        <div class="flex flex-col">
+          <span class="text-base sm:text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
             RENGGALI <span class="text-blue-600">GROUP</span>
           </span>
-          <p class="text-xs text-slate-500 font-medium">Portal Properti & Informasi Proyek Batam</p>
+          <p class="text-[10px] sm:text-xs text-slate-500 font-medium hidden xs:block">Portal Properti & Info Batam</p>
         </div>
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-        <a href="#katalog-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-semibold text-slate-600">
+        <a href="#katalog-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 py-1">
           <i data-lucide="layout-grid" class="w-4 h-4 text-slate-400"></i> Katalog Properti
         </a>
-        <a href="#booking-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+        <a href="#booking-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 py-1">
           <i data-lucide="clipboard-list" class="w-4 h-4 text-slate-400"></i> Live Booking Unit
         </a>
-        <a href="#wilayah-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+        <a href="#wilayah-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 py-1">
           <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> Wilayah
         </a>
-        <a href="#unduhan-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+        <a href="#unduhan-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5 py-1">
           <i data-lucide="download" class="w-4 h-4 text-slate-400"></i> Unduh Data
         </a>
       </nav>
 
-      <!-- Action Button -->
-      <div class="flex items-center gap-3">
+      <!-- Action Buttons & Mobile Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Desktop External Links -->
         <a href="https://drive.google.com/open?id=194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm shadow-emerald-600/30 transition-all hover:shadow-md">
-          <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">Google Spreadsheet</span>
+           class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm shadow-emerald-600/30 transition-all"
+           title="Buka Google Spreadsheet">
+          <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i>
+          <span>Spreadsheet</span>
         </a>
+        
         <a href="hasil_scraping_renggali.xlsx" download
-           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm shadow-blue-600/30 transition-all hover:shadow-md">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download Excel</span>
+           class="inline-flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm shadow-blue-600/30 transition-all"
+           title="Download Excel">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span class="hidden xs:inline">Excel</span>
         </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" 
+                class="md:hidden p-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-label="Toggle navigation menu">
+          <i id="menu-icon-open" data-lucide="menu" class="w-5 h-5"></i>
+          <i id="menu-icon-close" data-lucide="x" class="w-5 h-5 hidden"></i>
+        </button>
       </div>
 
+    </div>
+
+    <!-- Mobile Drawer / Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 pt-3 pb-5 space-y-2.5 shadow-lg transition-all animate-in slide-in-from-top duration-200">
+      <a href="#katalog-section" onclick="closeMobileMenu()" 
+         class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-700 font-bold text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors">
+        <i data-lucide="layout-grid" class="w-4 h-4 text-blue-600"></i> Katalog Properti (17)
+      </a>
+      <a href="#booking-section" onclick="closeMobileMenu()" 
+         class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-700 font-bold text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors">
+        <i data-lucide="clipboard-list" class="w-4 h-4 text-emerald-600"></i> Live Booking Unit (116)
+      </a>
+      <a href="#wilayah-section" onclick="closeMobileMenu()" 
+         class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-700 font-bold text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors">
+        <i data-lucide="map-pin" class="w-4 h-4 text-amber-600"></i> Wilayah Batam (7)
+      </a>
+      <a href="#unduhan-section" onclick="closeMobileMenu()" 
+         class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-700 font-bold text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors">
+        <i data-lucide="download" class="w-4 h-4 text-purple-600"></i> Unduh Master Data
+      </a>
+      
+      <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
+        <a href="https://drive.google.com/open?id=194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm">
+          <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Buka Google Spreadsheet Asli
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-16 pb-24 lg:pt-20 lg:pb-32">
+  <section class="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-950 text-white pt-12 pb-20 sm:pt-16 sm:pb-28 lg:pt-20 lg:pb-32">
     <!-- Background Decor -->
     <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
       
       <!-- Slogan Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-semibold mb-6">
-        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-400"></i>
-        <span>"Ingat Rumah, Ingat Renggali" • Solusi Hunian Modern di Batam</span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-[11px] sm:text-xs font-semibold mb-5 sm:mb-6">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
+        <span>"Ingat Rumah, Ingat Renggali" • Batam</span>
       </div>
 
       <!-- Main Headline -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight sm:leading-none">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight sm:leading-none">
         Katalog Lengkap & Update Real-Time <br class="hidden sm:block">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400">
           Properti Renggali Group
         </span>
       </h1>
 
-      <p class="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-        Jelajahi 17 pilihan perumahan dan ruko strategis di Batam. Dapatkan akses langsung ke 
-        <strong class="text-white">Price List resmi</strong>, <strong class="text-white">Site Plan PDF</strong>, video lokasi, dan informasi ketersediaan unit booking hari ini.
+      <p class="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed px-2">
+        Jelajahi 17 pilihan perumahan dan ruko strategis di Batam. Akses langsung <strong class="text-white">Price List resmi</strong>, <strong class="text-white">Site Plan PDF</strong>, video tur, dan pantau status booking unit live.
       </p>
 
-      <!-- Stats Bar -->
-      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-blue-400" id="stat-projects">17</div>
-          <div class="text-xs font-medium text-slate-300 mt-1">Proyek Perumahan & Ruko</div>
+      <!-- Stats Bar (Responsive Grid) -->
+      <div class="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto">
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-2xl sm:text-3xl font-extrabold text-blue-400" id="stat-projects">17</div>
+          <div class="text-[10px] sm:text-xs font-medium text-slate-300 mt-0.5 sm:mt-1">Proyek Properti</div>
         </div>
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-emerald-400">7</div>
-          <div class="text-xs font-medium text-slate-300 mt-1">Wilayah Strategis Batam</div>
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">7</div>
+          <div class="text-[10px] sm:text-xs font-medium text-slate-300 mt-0.5 sm:mt-1">Wilayah Batam</div>
         </div>
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-amber-400" id="stat-docs">30+</div>
-          <div class="text-xs font-medium text-slate-300 mt-1">Site Plan & Price List</div>
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-2xl sm:text-3xl font-extrabold text-amber-400" id="stat-docs">30+</div>
+          <div class="text-[10px] sm:text-xs font-medium text-slate-300 mt-0.5 sm:mt-1">Dokumen PDF</div>
         </div>
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-purple-400" id="stat-bookings">116+</div>
-          <div class="text-xs font-medium text-slate-300 mt-1">Transaksi Booking Unit</div>
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-2xl sm:text-3xl font-extrabold text-purple-400" id="stat-bookings">116+</div>
+          <div class="text-[10px] sm:text-xs font-medium text-slate-300 mt-0.5 sm:mt-1">Unit Terbooking</div>
         </div>
       </div>
 
       <!-- Quick Action Buttons -->
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="#katalog-section" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2">
+      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
+        <a href="#katalog-section" 
+           class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2">
           <i data-lucide="compass" class="w-4 h-4"></i> Jelajahi Proyek
         </a>
-        <a href="#booking-section" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm backdrop-blur-sm transition-all flex items-center gap-2">
-          <i data-lucide="table" class="w-4 h-4"></i> Pantau Booking Unit Hari Ini
+        <a href="#booking-section" 
+           class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm backdrop-blur-sm transition-all flex items-center justify-center gap-2">
+          <i data-lucide="table" class="w-4 h-4"></i> Pantau Booking Unit
         </a>
       </div>
 
     </div>
   </section>
 
-  <!-- SEARCH & FILTER TOOLBAR -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-30">
+  <!-- SEARCH & FILTER TOOLBAR (RESPONSIVE) -->
+  <section class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-30 w-full">
     <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-200/80">
       
-      <div class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-between">
         <!-- Search Input -->
         <div class="relative flex-1">
-          <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
-          <input type="text" id="search-input" placeholder="Cari nama perumahan (misal: Renggali Residence, Basecamp, Nongsa...)" 
-                 class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium transition-all">
+          <i data-lucide="search" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="search-input" placeholder="Cari perumahan (contoh: Renggali Residence, Basecamp, Tembesi...)" 
+                 class="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs sm:text-sm font-medium transition-all">
         </div>
 
         <!-- Sort Dropdown -->
         <div class="flex items-center gap-2 shrink-0">
-          <label for="sort-select" class="text-xs font-semibold text-slate-500">Urutkan:</label>
-          <select id="sort-select" class="py-3 px-4 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label for="sort-select" class="text-xs font-semibold text-slate-500 shrink-0">Urutkan:</label>
+          <select id="sort-select" class="w-full sm:w-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="name-asc">Nama (A - Z)</option>
             <option value="name-desc">Nama (Z - A)</option>
             <option value="location">Wilayah / Lokasi</option>
@@ -204,24 +255,26 @@
         </div>
       </div>
 
-      <!-- Wilayah Filter Pills -->
-      <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar text-xs font-medium" id="filter-pills">
-        <!-- Generated by JS -->
+      <!-- Wilayah Filter Pills (Smooth Mobile Scrolling) -->
+      <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 relative">
+        <div class="flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar -mx-1 px-1 text-xs font-medium custom-scrollbar" id="filter-pills">
+          <!-- Generated by JS -->
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- KATALOG PROYEK (GRID) -->
-  <main id="katalog-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full">
+  <!-- KATALOG PROYEK (GRID RESPONSIVE) -->
+  <main id="katalog-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-1 w-full">
     
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
       <div>
         <div class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
           <i data-lucide="layers" class="w-3.5 h-3.5"></i> Showcase Properti
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Katalog Proyek Renggali Group</h2>
-        <p class="text-sm text-slate-500 mt-1">Daftar perumahan dan ruko dengan informasi promo dan berkas legalitas lengkap.</p>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Daftar perumahan dan ruko dengan informasi promo dan berkas legalitas resmi.</p>
       </div>
 
       <div class="text-xs font-semibold text-slate-500">
@@ -229,18 +282,18 @@
       </div>
     </div>
 
-    <!-- CARDS CONTAINER -->
-    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    <!-- CARDS CONTAINER (RESPONSIVE GRID) -->
+    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
       <!-- Generated by JS -->
     </div>
 
     <!-- Empty State -->
-    <div id="empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 p-8">
-      <div class="w-16 h-16 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 mb-4">
-        <i data-lucide="search-x" class="w-8 h-8"></i>
+    <div id="empty-state" class="hidden text-center py-16 sm:py-20 bg-white rounded-3xl border border-dashed border-slate-300 p-6 sm:p-8">
+      <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 mb-4">
+        <i data-lucide="search-x" class="w-7 h-7 sm:w-8 sm:h-8"></i>
       </div>
-      <h3 class="text-base font-bold text-slate-800">Tidak ada proyek yang cocok</h3>
-      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Coba gunakan kata kunci pencarian yang lain atau ubah filter wilayah di atas.</p>
+      <h3 class="text-sm sm:text-base font-bold text-slate-800">Tidak ada proyek yang cocok</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Coba gunakan kata kunci pencarian yang lain atau klik tombol reset.</p>
       <button onclick="resetFilters()" class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition-colors">
         Reset Filter
       </button>
@@ -248,55 +301,56 @@
 
   </main>
 
-  <!-- LIVE BOOKING TRACKER SECTION -->
-  <section id="booking-section" class="bg-white border-y border-slate-200 py-16">
+  <!-- LIVE BOOKING TRACKER SECTION (RESPONSIVE TABLE + MOBILE CARDS) -->
+  <section id="booking-section" class="bg-white border-y border-slate-200 py-12 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-4">
         <div>
           <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 uppercase tracking-wider mb-1">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             Real-Time Tracker
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Info Book Unit Hari Ini</h2>
-          <p class="text-sm text-slate-500 mt-1">Data live transaksi booking unit, skema KPR, sales, dan verifikasi berkas dari Google Sheets.</p>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Data live transaksi booking unit, skema KPR/Cash, sales, dan verifikasi berkas dari Google Sheets.</p>
         </div>
 
-        <div class="flex items-center gap-3">
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
           <a href="https://drive.google.com/open?id=194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8" target="_blank" rel="noopener noreferrer" 
-             class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-200 hover:border-slate-300 text-slate-700 text-xs font-bold bg-slate-50 hover:bg-slate-100 transition-all">
-            <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500"></i> Buka Google Spreadsheet Asli
+             class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 hover:border-slate-300 text-slate-700 text-xs font-bold bg-slate-50 hover:bg-slate-100 transition-all">
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span class="hidden xs:inline">Buka</span> Spreadsheet
           </a>
           <a href="output_csv/info_booking_unit.csv" download 
-             class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all">
+             class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all">
             <i data-lucide="download" class="w-3.5 h-3.5"></i> Unduh CSV
           </a>
         </div>
       </div>
 
       <!-- Booking Metrics Quick Cards -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-          <div class="text-xs font-semibold text-slate-500">Total Transaksi</div>
-          <div class="text-2xl font-extrabold text-slate-900 mt-1" id="metric-total">0</div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-6 sm:mb-8">
+        <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+          <div class="text-[11px] sm:text-xs font-semibold text-slate-500">Total Transaksi</div>
+          <div class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5 sm:mt-1" id="metric-total">0</div>
         </div>
-        <div class="p-4 rounded-xl bg-blue-50/50 border border-blue-200/80">
-          <div class="text-xs font-semibold text-blue-700">Skema KPR Ekspress</div>
-          <div class="text-2xl font-extrabold text-blue-800 mt-1" id="metric-kpr">0</div>
+        <div class="p-3 sm:p-4 rounded-xl bg-blue-50/50 border border-blue-200/80">
+          <div class="text-[11px] sm:text-xs font-semibold text-blue-700">KPR Ekspress</div>
+          <div class="text-xl sm:text-2xl font-extrabold text-blue-800 mt-0.5 sm:mt-1" id="metric-kpr">0</div>
         </div>
-        <div class="p-4 rounded-xl bg-purple-50/50 border border-purple-200/80">
-          <div class="text-xs font-semibold text-purple-700">Skema Cash Tahap</div>
-          <div class="text-2xl font-extrabold text-purple-800 mt-1" id="metric-cash">0</div>
+        <div class="p-3 sm:p-4 rounded-xl bg-purple-50/50 border border-purple-200/80">
+          <div class="text-[11px] sm:text-xs font-semibold text-purple-700">Cash Tahap</div>
+          <div class="text-xl sm:text-2xl font-extrabold text-purple-800 mt-0.5 sm:mt-1" id="metric-cash">0</div>
         </div>
-        <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80">
-          <div class="text-xs font-semibold text-emerald-700">Status Sisforum OKE</div>
-          <div class="text-2xl font-extrabold text-emerald-800 mt-1" id="metric-sisforum">0</div>
+        <div class="p-3 sm:p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80">
+          <div class="text-[11px] sm:text-xs font-semibold text-emerald-700">Sisforum OKE</div>
+          <div class="text-xl sm:text-2xl font-extrabold text-emerald-800 mt-0.5 sm:mt-1" id="metric-sisforum">0</div>
         </div>
       </div>
 
       <!-- Filter Controls for Table -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-4">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3 mb-4">
         <div class="relative flex-1 max-w-md">
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
           <input type="text" id="booking-search" placeholder="Cari nama konsumen, sales, blok, atau kode perumahan..." 
@@ -304,7 +358,7 @@
         </div>
 
         <div class="flex items-center gap-2">
-          <select id="booking-status-filter" class="py-2 px-3 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 bg-white focus:outline-none">
+          <select id="booking-status-filter" class="w-full sm:w-auto py-2 px-3 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 bg-white focus:outline-none">
             <option value="all">Semua Status / Skema</option>
             <option value="KPR EKSPRESS">KPR Ekspress</option>
             <option value="CASH TAHAP">Cash Tahap</option>
@@ -314,19 +368,26 @@
         </div>
       </div>
 
-      <!-- Table Container -->
-      <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white custom-scrollbar">
-        <table class="w-full text-left border-collapse text-xs">
+      <!-- Scroll hint on mobile -->
+      <div class="md:hidden flex items-center justify-between text-[11px] text-slate-500 mb-2 px-1">
+        <span class="flex items-center gap-1 font-medium">
+          <i data-lucide="move-horizontal" class="w-3.5 h-3.5 text-blue-500"></i> Geser tabel ke samping untuk info lengkap
+        </span>
+      </div>
+
+      <!-- Responsive Table Container -->
+      <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white custom-scrollbar w-full">
+        <table class="w-full text-left border-collapse text-xs min-w-[640px]">
           <thead>
-            <tr class="bg-slate-100/90 text-slate-700 font-bold border-b border-slate-200">
-              <th class="py-3 px-4 w-12 text-center">No</th>
-              <th class="py-3 px-4">Tgl Booking</th>
-              <th class="py-3 px-4">Perumahan</th>
-              <th class="py-3 px-4 text-center">Blok / No</th>
-              <th class="py-3 px-4">Nama Konsumen</th>
-              <th class="py-3 px-4">Sales</th>
-              <th class="py-3 px-4">Keterangan Proses</th>
-              <th class="py-3 px-4">Status Sisforum</th>
+            <tr class="bg-slate-100/90 text-slate-700 font-bold border-b border-slate-200 text-[11px] sm:text-xs">
+              <th class="py-3 px-3 sm:px-4 w-10 text-center">No</th>
+              <th class="py-3 px-3 sm:px-4 whitespace-nowrap">Tgl Booking</th>
+              <th class="py-3 px-3 sm:px-4">Perumahan</th>
+              <th class="py-3 px-3 sm:px-4 text-center">Blok / No</th>
+              <th class="py-3 px-3 sm:px-4">Nama Konsumen</th>
+              <th class="py-3 px-3 sm:px-4">Sales</th>
+              <th class="py-3 px-3 sm:px-4">Keterangan Proses</th>
+              <th class="py-3 px-3 sm:px-4">Status Sisforum</th>
             </tr>
           </thead>
           <tbody id="booking-table-body" class="divide-y divide-slate-100">
@@ -337,8 +398,8 @@
 
       <!-- Pagination & Summary -->
       <div class="mt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
-        <div id="booking-page-info">Menampilkan 1 - 15 dari 116 data</div>
-        <div class="flex items-center gap-1.5" id="booking-pagination">
+        <div id="booking-page-info">Menampilkan data</div>
+        <div class="flex items-center gap-1 flex-wrap justify-center" id="booking-pagination">
           <!-- Generated by JS -->
         </div>
       </div>
@@ -347,46 +408,46 @@
   </section>
 
   <!-- WILAYAH GUIDE SECTION -->
-  <section id="wilayah-section" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-12">
+  <section id="wilayah-section" class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
       <div class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
         <i data-lucide="map" class="w-3.5 h-3.5"></i> Cakupan Area
       </div>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Wilayah Properti Renggali Group di Batam</h2>
-      <p class="text-sm text-slate-500 mt-2">Pilihan hunian yang tersebar di titik-titik pertumbuhan ekonomi dan kawasan industri Kota Batam.</p>
+      <p class="text-xs sm:text-sm text-slate-500 mt-2 px-2">Pilihan hunian yang tersebar di titik-titik pertumbuhan ekonomi dan kawasan industri Kota Batam.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="wilayah-cards">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4" id="wilayah-cards">
       <!-- Generated by JS -->
     </div>
   </section>
 
   <!-- UNDUHAN DATA SECTION -->
-  <section id="unduhan-section" class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white py-16">
+  <section id="unduhan-section" class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white py-12 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
         <div class="max-w-xl text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold mb-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold mb-3 sm:mb-4">
             <i data-lucide="file-check" class="w-3.5 h-3.5 text-blue-400"></i>
             Ekspor Data Lengkap
           </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Unduh Laporan & Master Data Scraping</h2>
-          <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight">Unduh Laporan & Master Data Scraping</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
             Dapatkan file master lengkap hasil scraping dalam format Excel, JSON, maupun CSV untuk kebutuhan pelaporan, integrasi data, atau arsip offline.
           </p>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-3">
+        <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3 w-full lg:w-auto">
           <a href="hasil_scraping_renggali.xlsx" download
-             class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-600/30 transition-all">
+             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all">
             <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Master Excel (.xlsx)
           </a>
           <a href="hasil_scraping_renggali.json" download
-             class="px-5 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-amber-600/30 transition-all">
+             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-600/30 transition-all">
             <i data-lucide="code" class="w-4 h-4"></i> Data JSON (.json)
           </a>
           <a href="output_csv/katalog_proyek.csv" download
-             class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-blue-600/30 transition-all">
+             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition-all">
             <i data-lucide="table" class="w-4 h-4"></i> Katalog CSV (.csv)
           </a>
         </div>
@@ -394,41 +455,41 @@
     </div>
   </section>
 
-  <!-- MODAL DETAIL PROYEK -->
-  <div id="project-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col custom-scrollbar animate-in fade-in zoom-in duration-200">
+  <!-- MODAL DETAIL PROYEK (RESPONSIVE FULL / SHEET) -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col custom-scrollbar animate-in fade-in zoom-in duration-200">
       
       <!-- Modal Header Image -->
-      <div class="relative h-60 bg-slate-800 shrink-0">
+      <div class="relative h-48 sm:h-60 bg-slate-900 shrink-0">
         <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-black/30"></div>
         
-        <!-- Close Button -->
-        <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-colors">
+        <!-- Close Button (Touch Friendly) -->
+        <button onclick="closeModal()" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-sm transition-colors" aria-label="Tutup modal">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
         <!-- Header Content -->
-        <div class="absolute bottom-4 left-6 right-6">
-          <span id="modal-location" class="inline-block px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold mb-2"></span>
-          <h3 id="modal-title" class="text-2xl font-extrabold text-white"></h3>
+        <div class="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-6 sm:right-6">
+          <span id="modal-location" class="inline-block px-2.5 py-0.5 rounded-full bg-blue-600 text-white text-[11px] font-bold mb-1.5 sm:mb-2 shadow-sm"></span>
+          <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white leading-tight"></h3>
         </div>
       </div>
 
       <!-- Modal Body -->
-      <div class="p-6 sm:p-8 space-y-6 flex-1">
+      <div class="p-4 sm:p-6 lg:p-8 space-y-5 sm:space-y-6 flex-1">
         
         <!-- Promo Box -->
-        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200/80">
-          <div class="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider mb-1.5">
-            <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i> Promo & Penawaran Spesial
+        <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50 border border-amber-200/80">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-amber-800 uppercase tracking-wider mb-1">
+            <i data-lucide="tag" class="w-3.5 h-3.5 text-amber-600"></i> Promo & Penawaran Spesial
           </div>
-          <p id="modal-promo" class="text-sm font-semibold text-amber-950"></p>
+          <p id="modal-promo" class="text-xs sm:text-sm font-semibold text-amber-950 leading-relaxed"></p>
         </div>
 
         <!-- Documents Section -->
         <div>
-          <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2 mb-3">
+          <h4 class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-2 mb-2.5 sm:mb-3">
             <i data-lucide="file-text" class="w-4 h-4 text-blue-600"></i> Dokumen Resmi (Site Plan & Price List)
           </h4>
           <div id="modal-docs" class="space-y-2">
@@ -438,20 +499,20 @@
 
         <!-- Video Section -->
         <div id="modal-video-container" class="hidden">
-          <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2 mb-3">
+          <h4 class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-2 mb-2.5 sm:mb-3">
             <i data-lucide="video" class="w-4 h-4 text-red-600"></i> Video Lokasi & Unit
           </h4>
-          <div id="modal-video-player" class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 shadow-md">
+          <div id="modal-video-player" class="aspect-video w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 shadow-md">
             <!-- iframe YouTube -->
           </div>
         </div>
 
         <!-- Original Link -->
-        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <span class="text-slate-500">Sumber data: Google Sites Renggali Group</span>
+        <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <span class="text-slate-500 text-[11px]">Sumber: Google Sites Renggali Group</span>
           <a id="modal-site-link" href="#" target="_blank" rel="noopener noreferrer" 
-             class="inline-flex items-center gap-1.5 font-bold text-blue-600 hover:text-blue-800">
-            Buka Situs Asli Google Sites &rarr;
+             class="inline-flex items-center gap-1 font-bold text-blue-600 hover:text-blue-800 text-xs">
+            Buka Situs Asli &rarr;
           </a>
         </div>
 
@@ -460,11 +521,18 @@
     </div>
   </div>
 
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+          class="fixed bottom-5 right-5 z-40 w-11 h-11 rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/40 flex items-center justify-center opacity-0 pointer-events-none transition-all hover:bg-blue-700 hover:scale-105"
+          aria-label="Kembali ke atas">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 py-12 text-slate-500 text-xs mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+  <footer class="bg-white border-t border-slate-200 py-10 sm:py-12 text-slate-500 text-xs mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black">R</div>
+        <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black shrink-0">R</div>
         <div>
           <span class="font-bold text-slate-900">Renggali Group Web Portal</span> • Batam, Kepulauan Riau
         </div>
@@ -491,10 +559,46 @@
     let bookingPage = 1;
     const bookingPageSize = 15;
 
+    // Mobile Menu Controls
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const isHidden = menu.classList.contains('hidden');
+
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        closeMobileMenu();
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      menu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+
+    // Scroll Back to Top Listener
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        btn.classList.remove('opacity-0', 'pointer-events-none');
+        btn.classList.add('opacity-100');
+      } else {
+        btn.classList.add('opacity-0', 'pointer-events-none');
+        btn.classList.remove('opacity-100');
+      }
+    });
+
     // Helper: format label status
     function getStatusBadge(proses, sisforum) {
       const p = (proses || '').trim().toUpperCase();
-      const s = (sisforum || '').trim().toUpperCase();
 
       if (p.includes('BATAL')) {
         return `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800">BATAL</span>`;
@@ -548,6 +652,11 @@
         bookingPage = 1;
         renderBookingTable();
       });
+
+      // Escape key closes modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
     });
 
     // Stats
@@ -575,7 +684,7 @@
         const isActive = loc === currentFilter;
         return `
           <button onclick="setFilter('${loc}')" 
-                  class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                  class="px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 text-xs ${
                     isActive 
                       ? 'bg-blue-600 text-white font-bold shadow-sm' 
                       : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
@@ -608,12 +717,10 @@
       
       let list = [...RENGGALI_DATA.projects];
 
-      // Filter by location
       if (currentFilter !== 'all') {
         list = list.filter(p => p.location === currentFilter);
       }
 
-      // Filter by search query
       if (searchQuery) {
         list = list.filter(p => 
           p.project_name.toLowerCase().includes(searchQuery) ||
@@ -622,7 +729,6 @@
         );
       }
 
-      // Sorting
       if (currentSort === 'name-asc') {
         list.sort((a, b) => a.project_name.localeCompare(b.project_name));
       } else if (currentSort === 'name-desc') {
@@ -643,24 +749,25 @@
 
       emptyState.classList.add('hidden');
 
-      grid.innerHTML = list.map((p, idx) => {
+      grid.innerHTML = list.map((p) => {
         const docCount = (p.documents || []).length;
         const videoCount = (p.videos || []).length;
         const imgSrc = p.local_image || p.image_url || 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80';
         const promoText = p.promo_summary || 'Promo sesuai Price List & Brosur';
 
         return `
-          <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col group">
+          <div class="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col group">
             
             <!-- Card Image -->
-            <div class="relative h-52 bg-slate-100 overflow-hidden">
+            <div class="relative h-44 xs:h-48 sm:h-52 bg-slate-100 overflow-hidden">
               <img src="${imgSrc}" alt="${p.project_name}" 
                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   loading="lazy"
                    onerror="this.src='${p.image_url || 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80'}'">
               
               <!-- Location Badge -->
-              <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                <i data-lucide="map-pin" class="w-3 h-3 text-blue-400"></i> ${p.location}
+              <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                <i data-lucide="map-pin" class="w-3 h-3 text-blue-400 shrink-0"></i> ${p.location}
               </div>
 
               <!-- Media Badges -->
@@ -679,25 +786,25 @@
             </div>
 
             <!-- Card Content -->
-            <div class="p-6 flex-1 flex flex-col justify-between">
+            <div class="p-4 sm:p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
                   ${p.project_name}
                 </h3>
                 
-                <div class="mt-3 p-3 rounded-xl bg-amber-50/70 border border-amber-100 text-xs text-amber-900 line-clamp-2">
+                <div class="mt-2.5 sm:mt-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/70 border border-amber-100 text-xs text-amber-900 line-clamp-2">
                   <span class="font-bold text-amber-800">Promo:</span> ${promoText}
                 </div>
               </div>
 
-              <!-- Action Buttons -->
-              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+              <!-- Action Buttons (Touch Friendly) -->
+              <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-100 flex items-center gap-2">
                 <button onclick="openModal('${p.project_name.replace(/'/g, "\\'")}')" 
-                        class="flex-1 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
-                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> Lihat Detail
+                        class="flex-1 min-h-[40px] py-2 px-3 rounded-xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm active:scale-95">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> Detail & Berkas
                 </button>
                 <a href="${p.project_url}" target="_blank" rel="noopener noreferrer" 
-                   class="p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-colors" title="Buka di Google Sites">
+                   class="min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-colors" title="Buka di Google Sites">
                   <i data-lucide="external-link" class="w-4 h-4"></i>
                 </a>
               </div>
@@ -726,23 +833,23 @@
       const docsContainer = document.getElementById('modal-docs');
       if (p.documents && p.documents.length > 0) {
         docsContainer.innerHTML = p.documents.map(d => `
-          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3 text-xs">
-            <div class="flex items-center gap-2.5 overflow-hidden">
-              <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
-                <i data-lucide="file-text" class="w-4 h-4"></i>
+          <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col xs:flex-row xs:items-center justify-between gap-2 sm:gap-3 text-xs">
+            <div class="flex items-center gap-2 sm:gap-2.5 overflow-hidden">
+              <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+                <i data-lucide="file-text" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
               </div>
               <div class="truncate">
-                <div class="font-bold text-slate-800 truncate">${d.title}</div>
-                <div class="text-[10px] text-slate-500">${d.doc_type}</div>
+                <div class="font-bold text-slate-800 truncate text-[11px] sm:text-xs">${d.title}</div>
+                <div class="text-[9px] sm:text-[10px] text-slate-500">${d.doc_type}</div>
               </div>
             </div>
-            <div class="flex items-center gap-1.5 shrink-0">
+            <div class="flex items-center gap-1.5 shrink-0 self-end xs:self-center">
               <a href="${d.preview_url}" target="_blank" rel="noopener noreferrer" 
-                 class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-bold text-slate-700 transition-colors">
+                 class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-bold text-slate-700 text-[11px] transition-colors">
                 Lihat
               </a>
               <a href="${d.download_url}" target="_blank" rel="noopener noreferrer" 
-                 class="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition-colors">
+                 class="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] transition-colors">
                 Download
               </a>
             </div>
@@ -768,6 +875,7 @@
       const modal = document.getElementById('project-modal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
       lucide.createIcons();
     }
 
@@ -776,6 +884,7 @@
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       document.getElementById('modal-video-player').innerHTML = '';
+      document.body.style.overflow = '';
     }
 
     // Booking Table
@@ -797,7 +906,6 @@
       const tbody = document.getElementById('booking-table-body');
       let list = [...(RENGGALI_DATA.booking_records || [])];
 
-      // Filter by search
       if (bookingSearchQuery) {
         list = list.filter(r => 
           (r.NAMA_KONSUMEN && r.NAMA_KONSUMEN.toLowerCase().includes(bookingSearchQuery)) ||
@@ -808,7 +916,6 @@
         );
       }
 
-      // Filter by status
       if (bookingStatusFilter !== 'all') {
         list = list.filter(r => (r.KETERANGAN_PROSES || '').toUpperCase().includes(bookingStatusFilter));
       }
@@ -840,14 +947,14 @@
 
           return `
             <tr class="hover:bg-slate-50 transition-colors">
-              <td class="py-3 px-4 text-center font-bold text-slate-400">${r.NO || '-'}</td>
-              <td class="py-3 px-4 font-medium text-slate-700 whitespace-nowrap">${r.TANGGAL_BOOKING || '-'}</td>
-              <td class="py-3 px-4 font-bold text-slate-900">${r.PERUMAHAN || '-'}</td>
-              <td class="py-3 px-4 text-center font-bold text-blue-700">${r.BLOK || ''} - ${r.NOMOR || ''}</td>
-              <td class="py-3 px-4 font-semibold text-slate-800">${r.NAMA_KONSUMEN || '<span class="text-slate-400 italic">Belum tertera</span>'}</td>
-              <td class="py-3 px-4 font-medium text-slate-600">${r.SALES || '-'}</td>
-              <td class="py-3 px-4">${badge}</td>
-              <td class="py-3 px-4">${sisBadge}</td>
+              <td class="py-3 px-3 sm:px-4 text-center font-bold text-slate-400">${r.NO || '-'}</td>
+              <td class="py-3 px-3 sm:px-4 font-medium text-slate-700 whitespace-nowrap">${r.TANGGAL_BOOKING || '-'}</td>
+              <td class="py-3 px-3 sm:px-4 font-bold text-slate-900">${r.PERUMAHAN || '-'}</td>
+              <td class="py-3 px-3 sm:px-4 text-center font-bold text-blue-700 whitespace-nowrap">${r.BLOK || ''} - ${r.NOMOR || ''}</td>
+              <td class="py-3 px-3 sm:px-4 font-semibold text-slate-800">${r.NAMA_KONSUMEN || '<span class="text-slate-400 italic">Belum tertera</span>'}</td>
+              <td class="py-3 px-3 sm:px-4 font-medium text-slate-600">${r.SALES || '-'}</td>
+              <td class="py-3 px-3 sm:px-4">${badge}</td>
+              <td class="py-3 px-3 sm:px-4">${sisBadge}</td>
             </tr>
           `;
         }).join('');
@@ -862,23 +969,27 @@
       let buttons = '';
 
       buttons += `
-        <button onclick="changeBookingPage(${bookingPage - 1})" ${bookingPage === 1 ? 'disabled class="px-2.5 py-1 rounded border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold"'}>
-          &laquo; Prev
+        <button onclick="changeBookingPage(${bookingPage - 1})" ${bookingPage === 1 ? 'disabled class="px-2 py-1 rounded border border-slate-200 text-slate-300 cursor-not-allowed text-xs"' : 'class="px-2 py-1 rounded border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-xs"'}>
+          &laquo;
         </button>
       `;
 
-      for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+      let startPage = Math.max(1, bookingPage - 1);
+      let endPage = Math.min(totalPages, startPage + 3);
+      if (endPage - startPage < 3) startPage = Math.max(1, endPage - 3);
+
+      for (let i = startPage; i <= endPage; i++) {
         const isActive = i === bookingPage;
         buttons += `
-          <button onclick="changeBookingPage(${i})" class="px-2.5 py-1 rounded font-bold ${isActive ? 'bg-blue-600 text-white' : 'border border-slate-200 hover:bg-slate-100 text-slate-700'}">
+          <button onclick="changeBookingPage(${i})" class="px-2.5 py-1 rounded font-bold text-xs ${isActive ? 'bg-blue-600 text-white' : 'border border-slate-200 hover:bg-slate-100 text-slate-700'}">
             ${i}
           </button>
         `;
       }
 
       buttons += `
-        <button onclick="changeBookingPage(${bookingPage + 1})" ${bookingPage === totalPages ? 'disabled class="px-2.5 py-1 rounded border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold"'}>
-          Next &raquo;
+        <button onclick="changeBookingPage(${bookingPage + 1})" ${bookingPage === totalPages ? 'disabled class="px-2 py-1 rounded border border-slate-200 text-slate-300 cursor-not-allowed text-xs"' : 'class="px-2 py-1 rounded border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-xs"'}>
+          &raquo;
         </button>
       `;
 
@@ -909,12 +1020,12 @@
 
       container.innerHTML = areas.map(a => `
         <div onclick="setFilter('${a.name}'); location.href='#katalog-section';" 
-             class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group">
-          <div class="flex items-center justify-between mb-2">
+             class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group active:scale-[0.98]">
+          <div class="flex items-center justify-between mb-1.5 sm:mb-2">
             <span class="text-sm font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">${a.name}</span>
-            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">${a.count} Proyek</span>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">${a.count} Proyek</span>
           </div>
-          <p class="text-xs text-slate-500 line-clamp-2">${a.desc}</p>
+          <p class="text-[11px] sm:text-xs text-slate-500 line-clamp-2">${a.desc}</p>
         </div>
       `).join('');
     }
