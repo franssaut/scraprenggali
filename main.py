@@ -41,6 +41,41 @@ def run_telegram_bot():
     bot_main()
 
 
+def run_scheduler(interval_minutes: int = 60):
+    """Menjalankan scraping otomatis secara berkala."""
+    import time
+    from datetime import datetime
+    scraper = RenggaliScraper()
+    print(f"\n[SCHEDULER] Auto-Scraping aktif setiap {interval_minutes} menit.")
+    print("[INFO] Tekan Ctrl+C untuk menghentikan scheduler.")
+
+    iteration = 1
+    while True:
+        now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f"\n{'='*55}")
+        print(f"[ITERASI #{iteration}] Auto-scrape dimulai: {now_str}")
+        print(f"{'='*55}")
+        try:
+            scraper.fetch_all_projects(deep=True)
+            scraper.fetch_booking_data()
+            scraper.export_to_excel("hasil_scraping_renggali.xlsx")
+            scraper.export_to_json("hasil_scraping_renggali.json")
+            scraper.export_to_csv("output_csv")
+            print(f"[OK] Iterasi #{iteration} selesai pada {datetime.now().strftime('%H:%M:%S')} WIB!")
+        except Exception as e:
+            print(f"[ERROR] Iterasi #{iteration} gagal: {e}")
+
+        iteration += 1
+        next_run = datetime.now().timestamp() + (interval_minutes * 60)
+        next_str = datetime.fromtimestamp(next_run).strftime("%H:%M:%S")
+        print(f"[STANDBY] Menunggu {interval_minutes} menit (scrape berikutnya pukul {next_str} WIB)...")
+        try:
+            time.sleep(interval_minutes * 60)
+        except KeyboardInterrupt:
+            print("\n[STOP] Scheduler dihentikan oleh pengguna.")
+            break
+
+
 def run_interactive_menu():
     print_banner()
     scraper = RenggaliScraper()
@@ -54,9 +89,10 @@ def run_interactive_menu():
         print("  [5] Unduh Semua Gambar Banner Proyek")
         print("  [6] Jalankan Web Server & Buka Website di Browser (http://localhost:8000)")
         print("  [7] Jalankan Bot Telegram (bot.py)")
+        print("  [8] Jalankan Auto-Scrape Otomatis Berkala (Scheduler)")
         print("  [0] Keluar")
 
-        pilihan = input("\nMasukkan nomor pilihan (0-7) [default 6]: ").strip()
+        pilihan = input("\nMasukkan nomor pilihan (0-8) [default 6]: ").strip()
         if pilihan == "1":
             print("\n>> Memulai Scraping Lengkap...")
             scraper.fetch_all_projects(deep=True)
@@ -100,6 +136,12 @@ def run_interactive_menu():
             print("\n>> Menjalankan Bot Telegram...")
             run_telegram_bot()
             break
+        elif pilihan == "8":
+            menit_str = input("Masukkan interval waktu update (dalam menit) [default 60]: ").strip()
+            interval = int(menit_str) if menit_str.isdigit() and int(menit_str) > 0 else 60
+            print(f"\n>> Memulai Auto-Scrape Scheduler setiap {interval} menit...")
+            run_scheduler(interval)
+            break
         elif pilihan == "0":
             print("\nKeluar. Sampai jumpa!")
             sys.exit(0)
@@ -119,6 +161,7 @@ def main():
     parser.add_argument("--download-img", action="store_true", help="Unduh seluruh gambar banner")
     parser.add_argument("--serve", "-s", action="store_true", help="Jalankan server web lokal & buka website di browser")
     parser.add_argument("--bot", action="store_true", help="Jalankan Bot Telegram")
+    parser.add_argument("--schedule", type=int, nargs="?", const=60, default=None, metavar="MENIT", help="Jalankan auto-scraping otomatis berulang secara periodik (default: 60 menit)")
     parser.add_argument("--port", type=int, default=8000, help="Port untuk server web lokal (default: 8000)")
     parser.add_argument("--excel", default="hasil_scraping_renggali.xlsx", help="Nama file output Excel (default: hasil_scraping_renggali.xlsx)")
     parser.add_argument("--json", dest="json_path", default="hasil_scraping_renggali.json", help="Nama file output JSON (default: hasil_scraping_renggali.json)")
@@ -168,6 +211,9 @@ def main():
 
     if args.bot:
         run_telegram_bot()
+
+    if args.schedule is not None:
+        run_scheduler(args.schedule)
 
 
 if __name__ == "__main__":

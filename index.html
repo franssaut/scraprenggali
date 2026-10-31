@@ -73,7 +73,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
       <div class="flex items-center gap-1.5 sm:gap-2 mx-auto truncate">
         <span class="inline-block w-2 h-2 shrink-0 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="truncate">Data Properti & Booking Unit Terintegrasi Real-Time dari Google Sites & Spreadsheet Renggali</span>
+        <span class="truncate">Auto-Scraping Aktif &bull; Sinkronisasi Google Sites & Live Spreadsheet Booking Renggali Group</span>
       </div>
       <a href="#updates-section" class="hidden lg:inline-flex items-center gap-1 text-blue-200 hover:text-white underline text-xs shrink-0 font-semibold">
         Cek Update Terbaru &rarr;
@@ -326,15 +326,19 @@
           </p>
         </div>
 
-        <!-- Sync Status Pill & Refresh Button -->
+        <!-- Sync Status Pill, Auto-Sync Badge & Refresh Button -->
         <div class="flex items-center gap-2.5 flex-wrap">
           <div class="px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span id="sync-timestamp">Sinkron: Terverifikasi</span>
+          </div>
+          <div class="px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-[11px] font-bold flex items-center gap-1.5" title="Auto-Sync aktif otomatis memperbarui data booking & katalog">
+            <i data-lucide="radio" class="w-3.5 h-3.5 text-blue-600 animate-pulse"></i>
+            <span id="auto-sync-status">Auto-Sync: Aktif (60s)</span>
           </div>
           <button onclick="refreshDataVisual()" id="btn-refresh-data" 
                   class="px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-blue-400 hover:text-blue-600 text-slate-700 text-[11px] font-bold shadow-sm transition-all flex items-center gap-1.5 active:scale-95"
-                  title="Segarkan data terbaru">
+                  title="Segarkan data terbaru secara manual">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5" id="refresh-icon"></i>
             <span>Segarkan</span>
           </button>
@@ -696,10 +700,11 @@
       renderWilayahCards();
       lucide.createIcons();
 
-      // Cek jika data booking kosong, ambil langsung secara real-time dari Google Sheets
-      if (!RENGGALI_DATA.booking_records || RENGGALI_DATA.booking_records.length === 0) {
-        fetchLiveBookingFromGoogleSheets();
-      }
+      // Selalu tarik data booking terbaru secara real-time dari Google Sheets
+      fetchLiveBookingFromGoogleSheets(true);
+
+      // Mulai Auto-Sync otomatis tiap 60 detik (1 menit)
+      startAutoSyncTimer(60);
 
       // Event listeners
       document.getElementById('search-input').addEventListener('input', (e) => {
@@ -855,7 +860,11 @@
       lucide.createIcons();
     }
 
-    async function fetchLiveBookingFromGoogleSheets() {
+    let previousBookingCount = (RENGGALI_DATA.booking_records || []).length;
+    let autoSyncCountdown = 60;
+    let autoSyncIntervalId = null;
+
+    async function fetchLiveBookingFromGoogleSheets(silent = false) {
       const url = 'https://docs.google.com/spreadsheets/d/194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8/export?format=csv&gid=1761929285';
       try {
         const res = await fetch(url);
@@ -863,15 +872,91 @@
         const text = await res.text();
         const rows = parseCSV(text);
         if (rows && rows.length > 0) {
+          const isNewData = rows.length > previousBookingCount;
+          const diff = rows.length - previousBookingCount;
+          previousBookingCount = rows.length;
+
           RENGGALI_DATA.booking_records = rows;
           initBookingMetrics();
           renderBookingTable();
+          
           const statBook = document.getElementById('stat-bookings');
           if (statBook) statBook.textContent = rows.length + '+';
+
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
+          const syncEl = document.getElementById('sync-timestamp');
+          if (syncEl) syncEl.textContent = `Sinkron: Hari Ini, ${timeStr}`;
+
+          if (isNewData && !silent) {
+            showToast(`📢 Terdeteksi ${diff} transaksi booking unit baru!`, 'emerald');
+          }
         }
       } catch (e) {
         console.warn('Live spreadsheet fetch:', e);
       }
+    }
+
+    async function checkForServerUpdates() {
+      try {
+        const res = await fetch('hasil_scraping_renggali.json?_t=' + Date.now());
+        if (!res.ok) return;
+        const serverData = await res.json();
+        if (serverData.scraped_at && serverData.scraped_at !== RENGGALI_DATA.scraped_at) {
+          console.log('[AUTO-SYNC] Pembaruan scraping dari server terdeteksi:', serverData.scraped_at);
+          RENGGALI_DATA.projects = serverData.projects || RENGGALI_DATA.projects;
+          RENGGALI_DATA.latest_updates = serverData.latest_updates || RENGGALI_DATA.latest_updates;
+          RENGGALI_DATA.scraped_at = serverData.scraped_at;
+          RENGGALI_DATA.scraped_at_formatted = serverData.scraped_at_formatted;
+          if (serverData.booking_records && serverData.booking_records.length > 0) {
+            RENGGALI_DATA.booking_records = serverData.booking_records;
+            previousBookingCount = serverData.booking_records.length;
+          }
+          initStats();
+          initFilterPills();
+          renderProjects();
+          initUpdatesSection();
+          initBookingMetrics();
+          renderBookingTable();
+          showToast('🚀 Katalog proyek & berkas PDF baru berhasil diperbarui dari cloud scraper!', 'blue');
+        }
+      } catch (e) {
+        console.warn('Server updates check:', e);
+      }
+    }
+
+    function startAutoSyncTimer(intervalSeconds = 60) {
+      autoSyncCountdown = intervalSeconds;
+      const statusEl = document.getElementById('auto-sync-status');
+      
+      if (autoSyncIntervalId) clearInterval(autoSyncIntervalId);
+
+      autoSyncIntervalId = setInterval(async () => {
+        autoSyncCountdown--;
+        if (statusEl) {
+          statusEl.textContent = `Auto-Sync: ${autoSyncCountdown}s`;
+        }
+
+        if (autoSyncCountdown <= 0) {
+          autoSyncCountdown = intervalSeconds;
+          if (statusEl) statusEl.textContent = `Auto-Sync: Memperbarui...`;
+          
+          await fetchLiveBookingFromGoogleSheets(false);
+          await checkForServerUpdates();
+
+          if (statusEl) statusEl.textContent = `Auto-Sync: Aktif (${intervalSeconds}s)`;
+        }
+      }, 1000);
+    }
+
+    function showToast(message, color = 'emerald') {
+      const iconName = color === 'emerald' ? 'check-circle-2' : color === 'blue' ? 'sparkles' : 'check';
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 border border-slate-700 animate-in fade-in slide-in-from-bottom duration-300';
+      toast.innerHTML = `<i data-lucide="${iconName}" class="w-4 h-4 text-emerald-400"></i> ${message}`;
+      document.body.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => toast.remove(), 3500);
     }
 
     function parseCSV(text) {
@@ -927,7 +1012,8 @@
       const icon = document.getElementById('refresh-icon');
       if (icon) icon.classList.add('animate-spin');
       
-      await fetchLiveBookingFromGoogleSheets();
+      await fetchLiveBookingFromGoogleSheets(true);
+      await checkForServerUpdates();
 
       if (icon) icon.classList.remove('animate-spin');
       const now = new Date();
@@ -937,13 +1023,7 @@
       renderBookingTable();
       renderUpdatesCards();
       
-      // Notification toast
-      const toast = document.createElement('div');
-      toast.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 animate-in fade-in slide-in-from-bottom duration-300';
-      toast.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Data berhasil disinkronkan & diperbarui!`;
-      document.body.appendChild(toast);
-      lucide.createIcons();
-      setTimeout(() => toast.remove(), 2500);
+      showToast('Data berhasil disinkronkan & diperbarui!', 'emerald');
     }
 
     // Filter Pills

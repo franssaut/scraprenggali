@@ -1,0 +1,52 @@
+name: Otomatis Update Scraping Renggali
+
+on:
+  schedule:
+    # Berjalan otomatis setiap 3 jam (00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00 UTC)
+    - cron: '0 */3 * * *'
+  workflow_dispatch: # Tombol manual "Run workflow" di GitHub Actions UI
+  push:
+    branches:
+      - main
+    paths:
+      - 'renggali_scraper.py'
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 🐍 Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🚀 Jalankan Scraping Otomatis
+        run: |
+          python main.py --all
+
+      - name: 💾 Commit & Push Hasil Scraping Terkini
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data.js hasil_scraping_renggali.json hasil_scraping_renggali.xlsx output_csv/
+          if git diff --staged --quiet; then
+            echo "✅ Tidak ada perubahan data baru dari Google Sites & Spreadsheet."
+          else
+            echo "📢 Data baru terdeteksi! Melakukan commit & push..."
+            git commit -m "Auto-update: Sinkronisasi data scraping terbaru [skip ci]"
+            git push origin main
+          fi

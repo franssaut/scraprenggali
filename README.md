@@ -98,6 +98,31 @@ scraprenggali/
 
 ---
 
+## 🔄 Sistem Otomatis Scraping (Auto-Scraper & Live Sync)
+
+Proyek ini telah dilengkapi sistem pembaruan data otomatis pada 3 tingkatan (Cloud, Website Frontend, & Local Scheduler):
+
+### 1. ☁️ Cloud Automation (GitHub Actions Cron)
+- Workflow file: [`.github/workflows/auto_scrape.yml`](file:///.github/workflows/auto_scrape.yml)
+- **Jadwal Otomatis**: Berjalan otomatis via cron setiap 3 jam untuk mengekstrak Google Sites dan Google Spreadsheet.
+- **Auto-Commit & Auto-Deploy**: Bila terdeteksi perubahan pada katalog atau booking, GitHub Actions secara otomatis melakukan commit & push ke branch `main`, yang langsung memicu auto-deploy Vercel ke [https://scraprenggali.vercel.app](https://scraprenggali.vercel.app).
+- **Manual Trigger**: Pengguna dapat memicu scrape kapan saja melalui tab **Actions** di GitHub dengan menekan tombol **"Run workflow"**.
+
+### 2. 🌐 Website Real-Time Polling & Live Sync
+- Saat pengguna membuka website [scraprenggali.vercel.app](https://scraprenggali.vercel.app), browser secara otomatis menarik data live dari Google Spreadsheet secara real-time via CORS.
+- **Auto-Sync Tiap 60 Detik**: Website memiliki background timer yang secara periodik mengecek pembaruan transaksi booking dan berkas katalog baru dengan notifikasi toast visual yang interaktif.
+
+### 3. 💻 Local Scheduler (CLI & Windows Batch)
+- **Perintah CLI**:
+  ```bash
+  python main.py --schedule 60
+  ```
+  *(Jalankan auto-scraping berulang setiap 60 menit di latar belakang).*
+- **Windows One-Click Batch**:
+  Cukup klik dua kali berkas [`auto_scrape.bat`](file:///auto_scrape.bat).
+
+---
+
 ## 🛠️ Instalasi & Menjalankan Scraper
 
 1. **Pasang Dependensi**:
