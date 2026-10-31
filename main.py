@@ -1,14 +1,39 @@
 import argparse
 import sys
 import os
+import webbrowser
+import http.server
+import socketserver
 from renggali_scraper import RenggaliScraper
 
 
 def print_banner():
     print("=" * 65)
-    print("   🌐 WEB SCRAPER PROYEK RENGGALI GROUP (GOOGLE SITES) 🌐   ")
+    print("   🌐 WEB SCRAPER & PORTAL RENGGALI GROUP (GOOGLE SITES) 🌐   ")
     print("   https://sites.google.com/view/proyekrenggali/home       ")
     print("=" * 65)
+
+
+def start_local_server(port: int = 8000):
+    """Menjalankan HTTP server lokal dan membuka browser secara otomatis."""
+    handler = http.server.SimpleHTTPRequestHandler
+    try:
+        with socketserver.TCPServer(("", port), handler) as httpd:
+            url = f"http://localhost:{port}/index.html"
+            print(f"\n[SERVER] Server web aktif di: {url}")
+            print("[INFO] Tekan Ctrl+C di terminal untuk menghentikan server.")
+            webbrowser.open(url)
+            httpd.serve_forever()
+    except OSError:
+        # Jika port 8000 dipakai, coba 8080
+        with socketserver.TCPServer(("", port + 80), handler) as httpd:
+            url = f"http://localhost:{port + 80}/index.html"
+            print(f"\n[SERVER] Server web aktif di: {url}")
+            print("[INFO] Tekan Ctrl+C di terminal untuk menghentikan server.")
+            webbrowser.open(url)
+            httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\n[STOP] Server web dihentikan.")
 
 
 def run_interactive_menu():
@@ -22,10 +47,11 @@ def run_interactive_menu():
         print("  [3] Scrape Data BOOKING UNIT Terkini saja (Google Spreadsheet)")
         print("  [4] Unduh Semua Dokumen PDF (Site Plan & Price List dari Google Drive)")
         print("  [5] Unduh Semua Gambar Banner Proyek")
+        print("  [6] Jalankan Web Server & Buka Website di Browser (http://localhost:8000)")
         print("  [0] Keluar")
 
-        pilihan = input("\nMasukkan nomor pilihan (0-5) [default 1]: ").strip()
-        if pilihan == "" or pilihan == "1":
+        pilihan = input("\nMasukkan nomor pilihan (0-6) [default 6]: ").strip()
+        if pilihan == "1":
             print("\n>> Memulai Scraping Lengkap...")
             scraper.fetch_all_projects(deep=True)
             scraper.fetch_booking_data()
@@ -60,6 +86,10 @@ def run_interactive_menu():
             scraper.download_images("downloads/images")
             print("\n[SUKSES] Gambar tersimpan di 'downloads/images/'!")
             break
+        elif pilihan == "" or pilihan == "6":
+            print("\n>> Membuka Website...")
+            start_local_server()
+            break
         elif pilihan == "0":
             print("\nKeluar. Sampai jumpa!")
             sys.exit(0)
@@ -69,7 +99,7 @@ def run_interactive_menu():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Web Scraper untuk Portal Proyek Renggali Group (Google Sites)",
+        description="Web Scraper & Portal untuk Proyek Renggali Group (Google Sites)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--all", "-a", action="store_true", help="Scrape lengkap (Katalog + Detail Proyek + Booking Unit) & simpan Excel, JSON, CSV")
@@ -77,6 +107,8 @@ def main():
     parser.add_argument("--booking", "-b", action="store_true", help="Hanya unduh data booking unit terkini dari spreadsheet")
     parser.add_argument("--download-pdf", action="store_true", help="Unduh seluruh file PDF (Price List & Site Plan)")
     parser.add_argument("--download-img", action="store_true", help="Unduh seluruh gambar banner")
+    parser.add_argument("--serve", "-s", action="store_true", help="Jalankan server web lokal & buka website di browser")
+    parser.add_argument("--port", type=int, default=8000, help="Port untuk server web lokal (default: 8000)")
     parser.add_argument("--excel", default="hasil_scraping_renggali.xlsx", help="Nama file output Excel (default: hasil_scraping_renggali.xlsx)")
     parser.add_argument("--json", dest="json_path", default="hasil_scraping_renggali.json", help="Nama file output JSON (default: hasil_scraping_renggali.json)")
     parser.add_argument("--csv-dir", default="output_csv", help="Folder output CSV (default: output_csv)")
@@ -120,6 +152,9 @@ def main():
         if not scraper.catalog_data:
             scraper.fetch_catalog()
         scraper.download_images("downloads/images")
+
+    if args.serve:
+        start_local_server(args.port)
 
 
 if __name__ == "__main__":

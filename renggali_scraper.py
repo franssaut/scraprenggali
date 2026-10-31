@@ -426,10 +426,22 @@ class RenggaliScraper:
             "booking_records": self.booking_df.to_dict(orient="records") if self.booking_df is not None else [],
         }
 
+        # Pastikan local_image ditambahkan untuk website
+        for p in (self.projects_detailed or self.catalog_data):
+            p["local_image"] = f"downloads/images/{p['project_name']}.jpg"
+
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False, indent=2)
 
         print(f"[OK] File JSON tersimpan: {output_path}")
+
+        # Sinkronisasi ke data.js untuk website frontend
+        data_js_path = os.path.join(os.path.dirname(output_path) or ".", "data.js")
+        with open(data_js_path, "w", encoding="utf-8") as f:
+            f.write("// Data Otomatis Hasil Scraping Renggali Group\nconst RENGGALI_DATA = ")
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+            f.write(";\n")
+        print(f"[OK] File Website data.js tersimpan: {data_js_path}")
 
     def export_to_csv(self, output_dir: str = "output_csv"):
         """Mengekspor masing-masing tabel ke file CSV."""

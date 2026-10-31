@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renggali Group - Portal Properti & Info Booking Unit Batam</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white text-xs py-2 px-4 text-center font-medium shadow-inner">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 mx-auto">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Data Proyek & Info Booking Unit Terintegrasi Real-Time dari Google Sites & Spreadsheet Resmi Renggali Group</span>
+      </div>
+      <a href="#booking-section" class="hidden md:inline-flex items-center gap-1 text-blue-200 hover:text-white underline text-xs">
+        Cek Unit Booking &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- STICKY NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="home" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
+            RENGGALI <span class="text-blue-600">GROUP</span>
+          </span>
+          <p class="text-xs text-slate-500 font-medium">Portal Properti & Informasi Proyek Batam</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#katalog-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+          <i data-lucide="layout-grid" class="w-4 h-4 text-slate-400"></i> Katalog Properti
+        </a>
+        <a href="#booking-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+          <i data-lucide="clipboard-list" class="w-4 h-4 text-slate-400"></i> Live Booking Unit
+        </a>
+        <a href="#wilayah-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+          <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> Wilayah
+        </a>
+        <a href="#unduhan-section" class="hover:text-blue-600 transition-colors flex items-center gap-1.5">
+          <i data-lucide="download" class="w-4 h-4 text-slate-400"></i> Unduh Data
+        </a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="https://drive.google.com/open?id=194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm shadow-emerald-600/30 transition-all hover:shadow-md">
+          <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Google Spreadsheet</span>
+        </a>
+        <a href="hasil_scraping_renggali.xlsx" download
+           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm shadow-blue-600/30 transition-all hover:shadow-md">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>Download Excel</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-16 pb-24 lg:pt-20 lg:pb-32">
+    <!-- Background Decor -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Slogan Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-semibold mb-6">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-400"></i>
+        <span>"Ingat Rumah, Ingat Renggali" • Solusi Hunian Modern di Batam</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight sm:leading-none">
+        Katalog Lengkap & Update Real-Time <br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400">
+          Properti Renggali Group
+        </span>
+      </h1>
+
+      <p class="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Jelajahi 17 pilihan perumahan dan ruko strategis di Batam. Dapatkan akses langsung ke 
+        <strong class="text-white">Price List resmi</strong>, <strong class="text-white">Site Plan PDF</strong>, video lokasi, dan informasi ketersediaan unit booking hari ini.
+      </p>
+
+      <!-- Stats Bar -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-blue-400" id="stat-projects">17</div>
+          <div class="text-xs font-medium text-slate-300 mt-1">Proyek Perumahan & Ruko</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-emerald-400">7</div>
+          <div class="text-xs font-medium text-slate-300 mt-1">Wilayah Strategis Batam</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-amber-400" id="stat-docs">30+</div>
+          <div class="text-xs font-medium text-slate-300 mt-1">Site Plan & Price List</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-purple-400" id="stat-bookings">116+</div>
+          <div class="text-xs font-medium text-slate-300 mt-1">Transaksi Booking Unit</div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="#katalog-section" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2">
+          <i data-lucide="compass" class="w-4 h-4"></i> Jelajahi Proyek
+        </a>
+        <a href="#booking-section" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm backdrop-blur-sm transition-all flex items-center gap-2">
+          <i data-lucide="table" class="w-4 h-4"></i> Pantau Booking Unit Hari Ini
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTER TOOLBAR -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-30">
+    <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-200/80">
+      
+      <div class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="search-input" placeholder="Cari nama perumahan (misal: Renggali Residence, Basecamp, Nongsa...)" 
+                 class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium transition-all">
+        </div>
+
+        <!-- Sort Dropdown -->
+        <div class="flex items-center gap-2 shrink-0">
+          <label for="sort-select" class="text-xs font-semibold text-slate-500">Urutkan:</label>
+          <select id="sort-select" class="py-3 px-4 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="name-asc">Nama (A - Z)</option>
+            <option value="name-desc">Nama (Z - A)</option>
+            <option value="location">Wilayah / Lokasi</option>
+            <option value="docs">Dokumen Terbanyak</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Wilayah Filter Pills -->
+      <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar text-xs font-medium" id="filter-pills">
+        <!-- Generated by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KATALOG PROYEK (GRID) -->
+  <main id="katalog-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i> Showcase Properti
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Katalog Proyek Renggali Group</h2>
+        <p class="text-sm text-slate-500 mt-1">Daftar perumahan dan ruko dengan informasi promo dan berkas legalitas lengkap.</p>
+      </div>
+
+      <div class="text-xs font-semibold text-slate-500">
+        Menampilkan <span id="count-visible" class="text-blue-600 font-bold">17</span> dari 17 proyek
+      </div>
+    </div>
+
+    <!-- CARDS CONTAINER -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Generated by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300 p-8">
+      <div class="w-16 h-16 mx-auto bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 mb-4">
+        <i data-lucide="search-x" class="w-8 h-8"></i>
+      </div>
+      <h3 class="text-base font-bold text-slate-800">Tidak ada proyek yang cocok</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Coba gunakan kata kunci pencarian yang lain atau ubah filter wilayah di atas.</p>
+      <button onclick="resetFilters()" class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition-colors">
+        Reset Filter
+      </button>
+    </div>
+
+  </main>
+
+  <!-- LIVE BOOKING TRACKER SECTION -->
+  <section id="booking-section" class="bg-white border-y border-slate-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 uppercase tracking-wider mb-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Real-Time Tracker
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Info Book Unit Hari Ini</h2>
+          <p class="text-sm text-slate-500 mt-1">Data live transaksi booking unit, skema KPR, sales, dan verifikasi berkas dari Google Sheets.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://drive.google.com/open?id=194exWHm5wMBM-xMicWFcSmn_PesODCq0Wf7Dx7tPyH8" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-200 hover:border-slate-300 text-slate-700 text-xs font-bold bg-slate-50 hover:bg-slate-100 transition-all">
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500"></i> Buka Google Spreadsheet Asli
+          </a>
+          <a href="output_csv/info_booking_unit.csv" download 
+             class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Unduh CSV
+          </a>
+        </div>
+      </div>
+
+      <!-- Booking Metrics Quick Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+          <div class="text-xs font-semibold text-slate-500">Total Transaksi</div>
+          <div class="text-2xl font-extrabold text-slate-900 mt-1" id="metric-total">0</div>
+        </div>
+        <div class="p-4 rounded-xl bg-blue-50/50 border border-blue-200/80">
+          <div class="text-xs font-semibold text-blue-700">Skema KPR Ekspress</div>
+          <div class="text-2xl font-extrabold text-blue-800 mt-1" id="metric-kpr">0</div>
+        </div>
+        <div class="p-4 rounded-xl bg-purple-50/50 border border-purple-200/80">
+          <div class="text-xs font-semibold text-purple-700">Skema Cash Tahap</div>
+          <div class="text-2xl font-extrabold text-purple-800 mt-1" id="metric-cash">0</div>
+        </div>
+        <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80">
+          <div class="text-xs font-semibold text-emerald-700">Status Sisforum OKE</div>
+          <div class="text-2xl font-extrabold text-emerald-800 mt-1" id="metric-sisforum">0</div>
+        </div>
+      </div>
+
+      <!-- Filter Controls for Table -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-4">
+        <div class="relative flex-1 max-w-md">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="booking-search" placeholder="Cari nama konsumen, sales, blok, atau kode perumahan..." 
+                 class="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="flex items-center gap-2">
+          <select id="booking-status-filter" class="py-2 px-3 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700 bg-white focus:outline-none">
+            <option value="all">Semua Status / Skema</option>
+            <option value="KPR EKSPRESS">KPR Ekspress</option>
+            <option value="CASH TAHAP">Cash Tahap</option>
+            <option value="CICIL UM">Cicil UM</option>
+            <option value="BATAL">Batal</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table Container -->
+      <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white custom-scrollbar">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-100/90 text-slate-700 font-bold border-b border-slate-200">
+              <th class="py-3 px-4 w-12 text-center">No</th>
+              <th class="py-3 px-4">Tgl Booking</th>
+              <th class="py-3 px-4">Perumahan</th>
+              <th class="py-3 px-4 text-center">Blok / No</th>
+              <th class="py-3 px-4">Nama Konsumen</th>
+              <th class="py-3 px-4">Sales</th>
+              <th class="py-3 px-4">Keterangan Proses</th>
+              <th class="py-3 px-4">Status Sisforum</th>
+            </tr>
+          </thead>
+          <tbody id="booking-table-body" class="divide-y divide-slate-100">
+            <!-- Generated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination & Summary -->
+      <div class="mt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <div id="booking-page-info">Menampilkan 1 - 15 dari 116 data</div>
+        <div class="flex items-center gap-1.5" id="booking-pagination">
+          <!-- Generated by JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WILAYAH GUIDE SECTION -->
+  <section id="wilayah-section" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
+        <i data-lucide="map" class="w-3.5 h-3.5"></i> Cakupan Area
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Wilayah Properti Renggali Group di Batam</h2>
+      <p class="text-sm text-slate-500 mt-2">Pilihan hunian yang tersebar di titik-titik pertumbuhan ekonomi dan kawasan industri Kota Batam.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="wilayah-cards">
+      <!-- Generated by JS -->
+    </div>
+  </section>
+
+  <!-- UNDUHAN DATA SECTION -->
+  <section id="unduhan-section" class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="max-w-xl text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold mb-4">
+            <i data-lucide="file-check" class="w-3.5 h-3.5 text-blue-400"></i>
+            Ekspor Data Lengkap
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Unduh Laporan & Master Data Scraping</h2>
+          <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+            Dapatkan file master lengkap hasil scraping dalam format Excel, JSON, maupun CSV untuk kebutuhan pelaporan, integrasi data, atau arsip offline.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="hasil_scraping_renggali.xlsx" download
+             class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-600/30 transition-all">
+            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Master Excel (.xlsx)
+          </a>
+          <a href="hasil_scraping_renggali.json" download
+             class="px-5 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-amber-600/30 transition-all">
+            <i data-lucide="code" class="w-4 h-4"></i> Data JSON (.json)
+          </a>
+          <a href="output_csv/katalog_proyek.csv" download
+             class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-blue-600/30 transition-all">
+            <i data-lucide="table" class="w-4 h-4"></i> Katalog CSV (.csv)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DETAIL PROYEK -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 flex flex-col custom-scrollbar animate-in fade-in zoom-in duration-200">
+      
+      <!-- Modal Header Image -->
+      <div class="relative h-60 bg-slate-800 shrink-0">
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30"></div>
+        
+        <!-- Close Button -->
+        <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Header Content -->
+        <div class="absolute bottom-4 left-6 right-6">
+          <span id="modal-location" class="inline-block px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold mb-2"></span>
+          <h3 id="modal-title" class="text-2xl font-extrabold text-white"></h3>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-8 space-y-6 flex-1">
+        
+        <!-- Promo Box -->
+        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200/80">
+          <div class="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider mb-1.5">
+            <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i> Promo & Penawaran Spesial
+          </div>
+          <p id="modal-promo" class="text-sm font-semibold text-amber-950"></p>
+        </div>
+
+        <!-- Documents Section -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2 mb-3">
+            <i data-lucide="file-text" class="w-4 h-4 text-blue-600"></i> Dokumen Resmi (Site Plan & Price List)
+          </h4>
+          <div id="modal-docs" class="space-y-2">
+            <!-- Generated by JS -->
+          </div>
+        </div>
+
+        <!-- Video Section -->
+        <div id="modal-video-container" class="hidden">
+          <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2 mb-3">
+            <i data-lucide="video" class="w-4 h-4 text-red-600"></i> Video Lokasi & Unit
+          </h4>
+          <div id="modal-video-player" class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 shadow-md">
+            <!-- iframe YouTube -->
+          </div>
+        </div>
+
+        <!-- Original Link -->
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <span class="text-slate-500">Sumber data: Google Sites Renggali Group</span>
+          <a id="modal-site-link" href="#" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-1.5 font-bold text-blue-600 hover:text-blue-800">
+            Buka Situs Asli Google Sites &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-12 text-slate-500 text-xs mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black">R</div>
+        <div>
+          <span class="font-bold text-slate-900">Renggali Group Web Portal</span> • Batam, Kepulauan Riau
+        </div>
+      </div>
+      <div>
+        Data diekstrak otomatis dari <a href="https://sites.google.com/view/proyekrenggali/home" target="_blank" class="text-blue-600 underline font-medium">Google Sites Proyek Renggali</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- DATA SCRIPT -->
+  <script src="data.js"></script>
+
+  <!-- APPLICATION LOGIC SCRIPT -->
+  <script>
+    // State Aplikasi
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let currentSort = 'name-asc';
+
+    // State Booking Table
+    let bookingSearchQuery = '';
+    let bookingStatusFilter = 'all';
+    let bookingPage = 1;
+    const bookingPageSize = 15;
+
+    // Helper: format label status
+    function getStatusBadge(proses, sisforum) {
+      const p = (proses || '').trim().toUpperCase();
+      const s = (sisforum || '').trim().toUpperCase();
+
+      if (p.includes('BATAL')) {
+        return `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800">BATAL</span>`;
+      }
+      if (p.includes('KPR')) {
+        return `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">KPR EKSPRESS</span>`;
+      }
+      if (p.includes('CASH')) {
+        return `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800">CASH TAHAP</span>`;
+      }
+      if (p.includes('CICIL')) {
+        return `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">CICIL UM</span>`;
+      }
+      return `<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700">${proses || '-'}</span>`;
+    }
+
+    // Initialize App
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof RENGGALI_DATA === 'undefined') {
+        console.error('Data RENGGALI_DATA tidak ditemukan.');
+        return;
+      }
+
+      initStats();
+      initFilterPills();
+      renderProjects();
+      initBookingMetrics();
+      renderBookingTable();
+      renderWilayahCards();
+      lucide.createIcons();
+
+      // Event listeners
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        renderProjects();
+      });
+
+      document.getElementById('sort-select').addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        renderProjects();
+      });
+
+      document.getElementById('booking-search').addEventListener('input', (e) => {
+        bookingSearchQuery = e.target.value.toLowerCase().trim();
+        bookingPage = 1;
+        renderBookingTable();
+      });
+
+      document.getElementById('booking-status-filter').addEventListener('change', (e) => {
+        bookingStatusFilter = e.target.value;
+        bookingPage = 1;
+        renderBookingTable();
+      });
+    });
+
+    // Stats
+    function initStats() {
+      document.getElementById('stat-projects').textContent = RENGGALI_DATA.projects.length;
+      let docCount = 0;
+      RENGGALI_DATA.projects.forEach(p => docCount += (p.documents || []).length);
+      document.getElementById('stat-docs').textContent = docCount + '+';
+      document.getElementById('stat-bookings').textContent = RENGGALI_DATA.booking_records.length + '+';
+    }
+
+    // Filter Pills
+    function initFilterPills() {
+      const container = document.getElementById('filter-pills');
+      const locations = ['all'];
+      
+      RENGGALI_DATA.projects.forEach(p => {
+        const loc = p.location || 'Lainnya';
+        if (!locations.includes(loc)) locations.push(loc);
+      });
+
+      container.innerHTML = locations.map(loc => {
+        const label = loc === 'all' ? 'Semua Wilayah' : loc;
+        const count = loc === 'all' ? RENGGALI_DATA.projects.length : RENGGALI_DATA.projects.filter(p => p.location === loc).length;
+        const isActive = loc === currentFilter;
+        return `
+          <button onclick="setFilter('${loc}')" 
+                  class="px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                    isActive 
+                      ? 'bg-blue-600 text-white font-bold shadow-sm' 
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }">
+            <span>${label}</span>
+            <span class="px-1.5 py-0.2 rounded-full text-[10px] ${isActive ? 'bg-white/20' : 'bg-slate-200 text-slate-600'}">${count}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setFilter(loc) {
+      currentFilter = loc;
+      initFilterPills();
+      renderProjects();
+    }
+
+    function resetFilters() {
+      currentFilter = 'all';
+      searchQuery = '';
+      document.getElementById('search-input').value = '';
+      initFilterPills();
+      renderProjects();
+    }
+
+    // Render Projects
+    function renderProjects() {
+      const grid = document.getElementById('projects-grid');
+      const emptyState = document.getElementById('empty-state');
+      
+      let list = [...RENGGALI_DATA.projects];
+
+      // Filter by location
+      if (currentFilter !== 'all') {
+        list = list.filter(p => p.location === currentFilter);
+      }
+
+      // Filter by search query
+      if (searchQuery) {
+        list = list.filter(p => 
+          p.project_name.toLowerCase().includes(searchQuery) ||
+          p.location.toLowerCase().includes(searchQuery) ||
+          (p.promo_summary && p.promo_summary.toLowerCase().includes(searchQuery))
+        );
+      }
+
+      // Sorting
+      if (currentSort === 'name-asc') {
+        list.sort((a, b) => a.project_name.localeCompare(b.project_name));
+      } else if (currentSort === 'name-desc') {
+        list.sort((a, b) => b.project_name.localeCompare(a.project_name));
+      } else if (currentSort === 'location') {
+        list.sort((a, b) => a.location.localeCompare(b.location));
+      } else if (currentSort === 'docs') {
+        list.sort((a, b) => (b.documents || []).length - (a.documents || []).length);
+      }
+
+      document.getElementById('count-visible').textContent = list.length;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = list.map((p, idx) => {
+        const docCount = (p.documents || []).length;
+        const videoCount = (p.videos || []).length;
+        const imgSrc = p.local_image || p.image_url || 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80';
+        const promoText = p.promo_summary || 'Promo sesuai Price List & Brosur';
+
+        return `
+          <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col group">
+            
+            <!-- Card Image -->
+            <div class="relative h-52 bg-slate-100 overflow-hidden">
+              <img src="${imgSrc}" alt="${p.project_name}" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   onerror="this.src='${p.image_url || 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80'}'">
+              
+              <!-- Location Badge -->
+              <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                <i data-lucide="map-pin" class="w-3 h-3 text-blue-400"></i> ${p.location}
+              </div>
+
+              <!-- Media Badges -->
+              <div class="absolute bottom-3 right-3 flex items-center gap-1.5">
+                ${docCount > 0 ? `
+                  <span class="bg-blue-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm shadow flex items-center gap-1">
+                    <i data-lucide="file-text" class="w-2.5 h-2.5"></i> ${docCount} PDF
+                  </span>
+                ` : ''}
+                ${videoCount > 0 ? `
+                  <span class="bg-red-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm shadow flex items-center gap-1">
+                    <i data-lucide="play" class="w-2.5 h-2.5"></i> Video
+                  </span>
+                ` : ''}
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-lg font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                  ${p.project_name}
+                </h3>
+                
+                <div class="mt-3 p-3 rounded-xl bg-amber-50/70 border border-amber-100 text-xs text-amber-900 line-clamp-2">
+                  <span class="font-bold text-amber-800">Promo:</span> ${promoText}
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+                <button onclick="openModal('${p.project_name.replace(/'/g, "\\'")}')" 
+                        class="flex-1 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i> Lihat Detail
+                </button>
+                <a href="${p.project_url}" target="_blank" rel="noopener noreferrer" 
+                   class="p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-colors" title="Buka di Google Sites">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Modal
+    function openModal(projectName) {
+      const p = RENGGALI_DATA.projects.find(x => x.project_name === projectName);
+      if (!p) return;
+
+      document.getElementById('modal-title').textContent = p.project_name;
+      document.getElementById('modal-location').textContent = p.location;
+      document.getElementById('modal-img').src = p.local_image || p.image_url;
+      document.getElementById('modal-promo').textContent = p.promo_summary || 'Promo sesuai Price List & Brosur';
+      document.getElementById('modal-site-link').href = p.project_url;
+
+      // Documents
+      const docsContainer = document.getElementById('modal-docs');
+      if (p.documents && p.documents.length > 0) {
+        docsContainer.innerHTML = p.documents.map(d => `
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2.5 overflow-hidden">
+              <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+              </div>
+              <div class="truncate">
+                <div class="font-bold text-slate-800 truncate">${d.title}</div>
+                <div class="text-[10px] text-slate-500">${d.doc_type}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <a href="${d.preview_url}" target="_blank" rel="noopener noreferrer" 
+                 class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-bold text-slate-700 transition-colors">
+                Lihat
+              </a>
+              <a href="${d.download_url}" target="_blank" rel="noopener noreferrer" 
+                 class="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold transition-colors">
+                Download
+              </a>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        docsContainer.innerHTML = `<div class="text-xs text-slate-400 italic">Belum ada dokumen PDF terlampir.</div>`;
+      }
+
+      // Video
+      const videoContainer = document.getElementById('modal-video-container');
+      const videoPlayer = document.getElementById('modal-video-player');
+      if (p.videos && p.videos.length > 0) {
+        videoContainer.classList.remove('hidden');
+        videoPlayer.innerHTML = `
+          <iframe src="${p.videos[0].embed_url}" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+        `;
+      } else {
+        videoContainer.classList.add('hidden');
+        videoPlayer.innerHTML = '';
+      }
+
+      const modal = document.getElementById('project-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.getElementById('modal-video-player').innerHTML = '';
+    }
+
+    // Booking Table
+    function initBookingMetrics() {
+      const list = RENGGALI_DATA.booking_records || [];
+      document.getElementById('metric-total').textContent = list.length;
+      
+      const kprCount = list.filter(r => (r.KETERANGAN_PROSES || '').toUpperCase().includes('KPR')).length;
+      document.getElementById('metric-kpr').textContent = kprCount;
+
+      const cashCount = list.filter(r => (r.KETERANGAN_PROSES || '').toUpperCase().includes('CASH')).length;
+      document.getElementById('metric-cash').textContent = cashCount;
+
+      const sisCount = list.filter(r => (r.STATUS_SISFORUM || '').toUpperCase().includes('OKE')).length;
+      document.getElementById('metric-sisforum').textContent = sisCount;
+    }
+
+    function renderBookingTable() {
+      const tbody = document.getElementById('booking-table-body');
+      let list = [...(RENGGALI_DATA.booking_records || [])];
+
+      // Filter by search
+      if (bookingSearchQuery) {
+        list = list.filter(r => 
+          (r.NAMA_KONSUMEN && r.NAMA_KONSUMEN.toLowerCase().includes(bookingSearchQuery)) ||
+          (r.SALES && r.SALES.toLowerCase().includes(bookingSearchQuery)) ||
+          (r.PERUMAHAN && r.PERUMAHAN.toLowerCase().includes(bookingSearchQuery)) ||
+          (r.BLOK && r.BLOK.toLowerCase().includes(bookingSearchQuery)) ||
+          (r.KETERANGAN_PROSES && r.KETERANGAN_PROSES.toLowerCase().includes(bookingSearchQuery))
+        );
+      }
+
+      // Filter by status
+      if (bookingStatusFilter !== 'all') {
+        list = list.filter(r => (r.KETERANGAN_PROSES || '').toUpperCase().includes(bookingStatusFilter));
+      }
+
+      const total = list.length;
+      const totalPages = Math.ceil(total / bookingPageSize) || 1;
+      if (bookingPage > totalPages) bookingPage = totalPages;
+
+      const start = (bookingPage - 1) * bookingPageSize;
+      const paged = list.slice(start, start + bookingPageSize);
+
+      document.getElementById('booking-page-info').textContent = 
+        total === 0 ? 'Tidak ada data ditemukan' : `Menampilkan ${start + 1} - ${Math.min(start + bookingPageSize, total)} dari ${total} data`;
+
+      if (paged.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" class="py-8 text-center text-slate-400 italic">
+              Tidak ada data booking unit yang cocok dengan filter pencarian.
+            </td>
+          </tr>
+        `;
+      } else {
+        tbody.innerHTML = paged.map(r => {
+          const badge = getStatusBadge(r.KETERANGAN_PROSES, r.STATUS_SISFORUM);
+          const sisBadge = (r.STATUS_SISFORUM || '').toUpperCase().includes('OKE') 
+            ? `<span class="text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> OKE</span>` 
+            : `<span class="text-slate-400">-</span>`;
+
+          return `
+            <tr class="hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-4 text-center font-bold text-slate-400">${r.NO || '-'}</td>
+              <td class="py-3 px-4 font-medium text-slate-700 whitespace-nowrap">${r.TANGGAL_BOOKING || '-'}</td>
+              <td class="py-3 px-4 font-bold text-slate-900">${r.PERUMAHAN || '-'}</td>
+              <td class="py-3 px-4 text-center font-bold text-blue-700">${r.BLOK || ''} - ${r.NOMOR || ''}</td>
+              <td class="py-3 px-4 font-semibold text-slate-800">${r.NAMA_KONSUMEN || '<span class="text-slate-400 italic">Belum tertera</span>'}</td>
+              <td class="py-3 px-4 font-medium text-slate-600">${r.SALES || '-'}</td>
+              <td class="py-3 px-4">${badge}</td>
+              <td class="py-3 px-4">${sisBadge}</td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      renderBookingPagination(totalPages);
+      lucide.createIcons();
+    }
+
+    function renderBookingPagination(totalPages) {
+      const pag = document.getElementById('booking-pagination');
+      let buttons = '';
+
+      buttons += `
+        <button onclick="changeBookingPage(${bookingPage - 1})" ${bookingPage === 1 ? 'disabled class="px-2.5 py-1 rounded border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold"'}>
+          &laquo; Prev
+        </button>
+      `;
+
+      for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+        const isActive = i === bookingPage;
+        buttons += `
+          <button onclick="changeBookingPage(${i})" class="px-2.5 py-1 rounded font-bold ${isActive ? 'bg-blue-600 text-white' : 'border border-slate-200 hover:bg-slate-100 text-slate-700'}">
+            ${i}
+          </button>
+        `;
+      }
+
+      buttons += `
+        <button onclick="changeBookingPage(${bookingPage + 1})" ${bookingPage === totalPages ? 'disabled class="px-2.5 py-1 rounded border border-slate-200 text-slate-300 cursor-not-allowed"' : 'class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold"'}>
+          Next &raquo;
+        </button>
+      `;
+
+      pag.innerHTML = buttons;
+    }
+
+    function changeBookingPage(page) {
+      const total = (RENGGALI_DATA.booking_records || []).length;
+      const totalPages = Math.ceil(total / bookingPageSize) || 1;
+      if (page >= 1 && page <= totalPages) {
+        bookingPage = page;
+        renderBookingTable();
+      }
+    }
+
+    // Wilayah Section Cards
+    function renderWilayahCards() {
+      const container = document.getElementById('wilayah-cards');
+      const areas = [
+        { name: 'Tembesi', desc: 'Kawasan berkembang pesat dekat pusat pendidikan dan akses Trans Barelang.', count: 6 },
+        { name: 'Simp. Basecamp', desc: 'Lokasi super strategis persimpangan utama Batu Aji & Marina City.', count: 4 },
+        { name: 'Nongsa', desc: 'Kawasan wisata pantai, resort, dan Kawasan Ekonomi Khusus (KEK) digital.', count: 3 },
+        { name: 'Tanjung Uncang', desc: 'Pusat industri galangan kapal dan pergudangan dengan pasar sewa tinggi.', count: 1 },
+        { name: 'Batu Besar', desc: 'Sangat dekat dengan Bandara Internasional Hang Nadim Batam.', count: 1 },
+        { name: 'Sei Daun - Piayu', desc: 'Akses cepat ke kawasan industri Mukakuning & Batam Center.', count: 1 },
+        { name: 'Putri Hijau', desc: 'Area pemukiman asri dan tenang dengan akses fasilitas umum lengkap.', count: 1 },
+      ];
+
+      container.innerHTML = areas.map(a => `
+        <div onclick="setFilter('${a.name}'); location.href='#katalog-section';" 
+             class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">${a.name}</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">${a.count} Proyek</span>
+          </div>
+          <p class="text-xs text-slate-500 line-clamp-2">${a.desc}</p>
+        </div>
+      `).join('');
+    }
+  </script>
+
+</body>
+</html>
